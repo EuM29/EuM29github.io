@@ -3,256 +3,354 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV | Eunice Moreno</title>
+  <title>CV Web | Eunice Moreno</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-100 text-slate-800">
+<body class="bg-slate-950 text-slate-100">
 
-  <div class="min-h-screen">
-    <div class="max-w-6xl mx-auto px-6 py-10">
+  <div class="flex min-h-screen">
 
-      <!-- Header -->
-      <section class="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 text-white rounded-3xl shadow-2xl overflow-hidden">
-        <div class="grid md:grid-cols-3 gap-8 items-center p-8 md:p-12">
-          <div class="md:col-span-2">
-            <p class="uppercase tracking-[0.25em] text-sm text-blue-200 mb-3">
-              CV / Portafolio Profesional
-            </p>
-            <h1 class="text-4xl md:text-5xl font-bold leading-tight">
-              Eunice Moreno
-            </h1>
-            <p class="mt-4 text-lg md:text-xl text-slate-200">
-              Analista de Datos · Business Intelligence · Estadística · Automatización
-            </p>
-            <p class="mt-5 text-slate-300 max-w-2xl leading-relaxed">
-              Profesional orientada al análisis de datos, automatización de reportes,
-              visualización de información y construcción de soluciones tecnológicas con
-              enfoque analítico y de negocio.
-            </p>
-
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a href="#contacto" class="px-5 py-3 rounded-xl bg-white text-slate-900 font-semibold hover:bg-slate-200 transition">
-                Contacto
-              </a>
-              <a href="#proyectos" class="px-5 py-3 rounded-xl border border-white/30 hover:bg-white/10 transition">
-                Ver proyectos
-              </a>
-              <a href="cv.pdf" class="px-5 py-3 rounded-xl border border-blue-300/40 text-blue-100 hover:bg-blue-400/10 transition">
-                Descargar CV
-              </a>
-            </div>
+    <!-- Sidebar -->
+    <aside class="w-72 bg-slate-900/95 border-r border-yellow-400/20 p-6 hidden md:flex md:flex-col justify-between fixed top-0 left-0 h-screen">
+      <div>
+        <div class="mb-10">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center text-slate-900 font-bold text-2xl shadow-lg shadow-yellow-500/20">
+            E
           </div>
-
-          <div class="flex justify-center md:justify-end">
-            <div class="w-52 h-52 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl flex items-center justify-center overflow-hidden">
-              <img
-                src="https://via.placeholder.com/250"
-                alt="Foto profesional"
-                class="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+          <h1 class="mt-4 text-2xl font-bold text-white">Eunice Moreno</h1>
+          <p class="text-sm text-slate-400 mt-1">
+            Data · BI · Estadística · Automatización
+          </p>
         </div>
-      </section>
 
-      <!-- Main Grid -->
-      <div class="grid lg:grid-cols-3 gap-8 mt-8">
-
-        <!-- Left column -->
-        <aside class="lg:col-span-1 space-y-8">
-
-          <section class="bg-white rounded-3xl shadow-lg p-6">
-            <h2 class="text-xl font-bold mb-4">Perfil</h2>
-            <p class="text-slate-600 leading-relaxed">
-              Me especializo en transformar datos en información útil para la toma de
-              decisiones, mediante análisis estadístico, automatización de procesos,
-              desarrollo de dashboards y soluciones con Python, SQL y herramientas BI.
-            </p>
-          </section>
-
-          <section class="bg-white rounded-3xl shadow-lg p-6">
-            <h2 class="text-xl font-bold mb-4">Habilidades</h2>
-
-            <div class="space-y-4">
-              <div>
-                <p class="font-semibold mb-2">Tecnologías</p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Python</span>
-                  <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">SQL</span>
-                  <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Power BI</span>
-                  <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Oracle</span>
-                  <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Excel</span>
-                  <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Streamlit</span>
-                  <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">OpenCV</span>
-                  <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm">Git</span>
-                </div>
-              </div>
-
-              <div>
-                <p class="font-semibold mb-2">Áreas</p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm">Análisis de datos</span>
-                  <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm">Automatización</span>
-                  <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm">BI</span>
-                  <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm">OCR</span>
-                  <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm">Estadística</span>
-                  <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm">Visión por computadora</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="contacto" class="bg-white rounded-3xl shadow-lg p-6">
-            <h2 class="text-xl font-bold mb-4">Contacto</h2>
-            <div class="space-y-3 text-slate-600">
-              <p><span class="font-semibold text-slate-800">Email:</span> tucorreo@ejemplo.com</p>
-              <p><span class="font-semibold text-slate-800">LinkedIn:</span> linkedin.com/in/tuusuario</p>
-              <p><span class="font-semibold text-slate-800">GitHub:</span> github.com/tuusuario</p>
-              <p><span class="font-semibold text-slate-800">Ubicación:</span> Honduras</p>
-            </div>
-          </section>
-
-        </aside>
-
-        <!-- Right column -->
-        <main class="lg:col-span-2 space-y-8">
-
-          <section class="bg-white rounded-3xl shadow-lg p-6 md:p-8">
-            <h2 class="text-2xl font-bold mb-6">Experiencia</h2>
-
-            <div class="space-y-8">
-              <article class="relative border-l-4 border-blue-600 pl-5">
-                <div class="absolute -left-[10px] top-1 w-4 h-4 bg-blue-600 rounded-full"></div>
-                <p class="text-sm text-slate-500">2024 - Actualidad</p>
-                <h3 class="text-xl font-semibold mt-1">Analista de Datos / Business Intelligence</h3>
-                <p class="text-blue-700 font-medium mt-1">Nombre de institución o empresa</p>
-                <p class="mt-3 text-slate-600 leading-relaxed">
-                  Desarrollo de reportes automatizados, consultas SQL, dashboards de seguimiento
-                  e integración de datos para apoyar la toma de decisiones operativas y estratégicas.
-                </p>
-                <ul class="mt-3 list-disc list-inside text-slate-600 space-y-1">
-                  <li>Automatización de procesos de reporting con Python y Excel.</li>
-                  <li>Construcción de visualizaciones ejecutivas en Power BI.</li>
-                  <li>Consulta y transformación de datos desde bases Oracle.</li>
-                </ul>
-              </article>
-
-              <article class="relative border-l-4 border-slate-300 pl-5">
-                <div class="absolute -left-[10px] top-1 w-4 h-4 bg-slate-400 rounded-full"></div>
-                <p class="text-sm text-slate-500">Año - Año</p>
-                <h3 class="text-xl font-semibold mt-1">Otro cargo o experiencia relevante</h3>
-                <p class="text-blue-700 font-medium mt-1">Nombre de institución</p>
-                <p class="mt-3 text-slate-600 leading-relaxed">
-                  Describe aquí una experiencia académica, práctica profesional o proyecto
-                  importante que fortalezca tu perfil.
-                </p>
-              </article>
-            </div>
-          </section>
-
-          <section class="bg-white rounded-3xl shadow-lg p-6 md:p-8">
-            <h2 class="text-2xl font-bold mb-6">Formación Académica</h2>
-
-            <div class="grid md:grid-cols-2 gap-5">
-              <div class="rounded-2xl border border-slate-200 p-5">
-                <p class="text-sm text-slate-500">Actualidad</p>
-                <h3 class="font-semibold text-lg mt-1">Maestría en Matemática Estadística</h3>
-                <p class="text-slate-600 mt-2">Universidad Nacional Autónoma de Honduras</p>
-              </div>
-
-              <div class="rounded-2xl border border-slate-200 p-5">
-                <p class="text-sm text-slate-500">Finalizada</p>
-                <h3 class="font-semibold text-lg mt-1">Licenciatura en Matemática con orientación en Informática</h3>
-                <p class="text-slate-600 mt-2">Universidad Nacional Autónoma de Honduras</p>
-              </div>
-            </div>
-          </section>
-
-          <section id="proyectos" class="bg-white rounded-3xl shadow-lg p-6 md:p-8">
-            <h2 class="text-2xl font-bold mb-6">Proyectos Destacados</h2>
-
-            <div class="grid md:grid-cols-2 gap-6">
-              <article class="rounded-2xl bg-slate-50 border border-slate-200 p-5 hover:shadow-md transition">
-                <h3 class="text-lg font-semibold">Automatización de reportes</h3>
-                <p class="mt-3 text-slate-600 leading-relaxed">
-                  Desarrollo de soluciones en Python para generación automática de reportes,
-                  consolidación de datos y exportación a Excel.
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="text-xs px-3 py-1 rounded-full bg-white border">Python</span>
-                  <span class="text-xs px-3 py-1 rounded-full bg-white border">OpenPyXL</span>
-                  <span class="text-xs px-3 py-1 rounded-full bg-white border">SQL</span>
-                </div>
-              </article>
-
-              <article class="rounded-2xl bg-slate-50 border border-slate-200 p-5 hover:shadow-md transition">
-                <h3 class="text-lg font-semibold">OCR para extracción de datos</h3>
-                <p class="mt-3 text-slate-600 leading-relaxed">
-                  Implementación de herramientas para extraer texto de documentos e imágenes,
-                  estructurar resultados y facilitar procesamiento posterior.
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="text-xs px-3 py-1 rounded-full bg-white border">OCR</span>
-                  <span class="text-xs px-3 py-1 rounded-full bg-white border">Python</span>
-                  <span class="text-xs px-3 py-1 rounded-full bg-white border">OpenCV</span>
-                </div>
-              </article>
-
-              <article class="rounded-2xl bg-slate-50 border border-slate-200 p-5 hover:shadow-md transition">
-                <h3 class="text-lg font-semibold">Dashboards de indicadores</h3>
-                <p class="mt-3 text-slate-600 leading-relaxed">
-                  Construcción de tableros interactivos para monitoreo de indicadores,
-                  comparación temporal y análisis de desempeño.
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="text-xs px-3 py-1 rounded-full bg-white border">Power BI</span>
-                  <span class="text-xs px-3 py-1 rounded-full bg-white border">DAX</span>
-                  <span class="text-xs px-3 py-1 rounded-full bg-white border">SQL</span>
-                </div>
-              </article>
-
-              <article class="rounded-2xl bg-slate-50 border border-slate-200 p-5 hover:shadow-md transition">
-                <h3 class="text-lg font-semibold">Proyecto académico / investigación</h3>
-                <p class="mt-3 text-slate-600 leading-relaxed">
-                  Espacio para destacar un proyecto de análisis, estadística, machine learning
-                  o visión por computadora que quieras mostrar.
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2">
-                  <span class="text-xs px-3 py-1 rounded-full bg-white border">ML</span>
-                  <span class="text-xs px-3 py-1 rounded-full bg-white border">Estadística</span>
-                  <span class="text-xs px-3 py-1 rounded-full bg-white border">Investigación</span>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <section class="bg-white rounded-3xl shadow-lg p-6 md:p-8">
-            <h2 class="text-2xl font-bold mb-6">Certificaciones y Logros</h2>
-            <div class="space-y-4">
-              <div class="flex items-start gap-3">
-                <div class="w-3 h-3 rounded-full bg-blue-600 mt-2"></div>
-                <p class="text-slate-600">Intercambio académico internacional / experiencia Erasmus o equivalente.</p>
-              </div>
-              <div class="flex items-start gap-3">
-                <div class="w-3 h-3 rounded-full bg-blue-600 mt-2"></div>
-                <p class="text-slate-600">Participación en congresos, programas de formación o eventos académicos.</p>
-              </div>
-              <div class="flex items-start gap-3">
-                <div class="w-3 h-3 rounded-full bg-blue-600 mt-2"></div>
-                <p class="text-slate-600">Reconocimientos académicos, cursos técnicos o certificaciones relevantes.</p>
-              </div>
-            </div>
-          </section>
-
-        </main>
+        <nav class="space-y-2">
+          <a href="#inicio" class="block px-4 py-3 rounded-xl bg-slate-800 hover:bg-yellow-400 hover:text-slate-950 transition font-medium">
+            Inicio
+          </a>
+          <a href="#perfil" class="block px-4 py-3 rounded-xl text-slate-300 hover:bg-yellow-400 hover:text-slate-950 transition font-medium">
+            Perfil
+          </a>
+          <a href="#experiencia" class="block px-4 py-3 rounded-xl text-slate-300 hover:bg-yellow-400 hover:text-slate-950 transition font-medium">
+            Experiencia
+          </a>
+          <a href="#proyectos" class="block px-4 py-3 rounded-xl text-slate-300 hover:bg-yellow-400 hover:text-slate-950 transition font-medium">
+            Proyectos
+          </a>
+          <a href="#habilidades" class="block px-4 py-3 rounded-xl text-slate-300 hover:bg-yellow-400 hover:text-slate-950 transition font-medium">
+            Habilidades
+          </a>
+          <a href="#educacion" class="block px-4 py-3 rounded-xl text-slate-300 hover:bg-yellow-400 hover:text-slate-950 transition font-medium">
+            Educación
+          </a>
+          <a href="#contacto" class="block px-4 py-3 rounded-xl text-slate-300 hover:bg-yellow-400 hover:text-slate-950 transition font-medium">
+            Contacto
+          </a>
+        </nav>
       </div>
 
-      <!-- Footer -->
-      <footer class="mt-10 text-center text-slate-500 text-sm">
-        <p>© 2026 Eunice Moreno · CV Web</p>
-      </footer>
+      <div class="rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-500 p-[1px]">
+        <div class="rounded-2xl bg-slate-900 p-4">
+          <p class="text-xs uppercase tracking-widest text-yellow-400 mb-2">Disponible para</p>
+          <p class="text-sm text-slate-300">
+            Análisis de datos, BI, automatización, dashboards y proyectos tecnológicos.
+          </p>
+        </div>
+      </div>
+    </aside>
 
-    </div>
+    <!-- Main -->
+    <main class="w-full md:ml-72">
+      
+      <!-- Mobile top bar -->
+      <div class="md:hidden sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-yellow-400/20 px-4 py-4">
+        <h1 class="text-lg font-bold text-white">Eunice Moreno</h1>
+        <p class="text-xs text-slate-400">CV Web</p>
+      </div>
+
+      <div class="p-6 md:p-10 space-y-8">
+
+        <!-- Hero -->
+        <section id="inicio" class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border border-yellow-400/20 shadow-2xl">
+          <div class="absolute top-0 right-0 w-72 h-72 bg-yellow-400/10 blur-3xl rounded-full"></div>
+          <div class="absolute bottom-0 left-0 w-72 h-72 bg-blue-500/10 blur-3xl rounded-full"></div>
+
+          <div class="relative grid lg:grid-cols-3 gap-8 p-8 md:p-12 items-center">
+            <div class="lg:col-span-2">
+              <p class="uppercase tracking-[0.3em] text-xs text-yellow-400 mb-4">
+                CV · Portafolio · Perfil Profesional
+              </p>
+              <h2 class="text-4xl md:text-6xl font-extrabold leading-tight text-white">
+                Diseño, datos y soluciones
+                <span class="text-yellow-400">con impacto</span>
+              </h2>
+              <p class="mt-6 text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed">
+                Profesional enfocada en análisis de datos, automatización de reportes,
+                estadística aplicada, dashboards e integración de información para la toma
+                de decisiones.
+              </p>
+
+              <div class="mt-8 flex flex-wrap gap-4">
+                <a href="#proyectos" class="px-6 py-3 rounded-xl bg-yellow-400 text-slate-950 font-bold hover:bg-yellow-300 transition shadow-lg shadow-yellow-500/20">
+                  Ver proyectos
+                </a>
+                <a href="#contacto" class="px-6 py-3 rounded-xl border border-slate-600 text-white hover:border-yellow-400 hover:text-yellow-400 transition">
+                  Contactar
+                </a>
+                <a href="cv.pdf" class="px-6 py-3 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 transition">
+                  Descargar CV
+                </a>
+              </div>
+
+              <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="rounded-2xl bg-slate-800/70 border border-slate-700 p-4">
+                  <p class="text-2xl font-bold text-yellow-400">+3</p>
+                  <p class="text-sm text-slate-400">Áreas clave</p>
+                </div>
+                <div class="rounded-2xl bg-slate-800/70 border border-slate-700 p-4">
+                  <p class="text-2xl font-bold text-yellow-400">SQL</p>
+                  <p class="text-sm text-slate-400">Bases de datos</p>
+                </div>
+                <div class="rounded-2xl bg-slate-800/70 border border-slate-700 p-4">
+                  <p class="text-2xl font-bold text-yellow-400">BI</p>
+                  <p class="text-sm text-slate-400">Visualización</p>
+                </div>
+                <div class="rounded-2xl bg-slate-800/70 border border-slate-700 p-4">
+                  <p class="text-2xl font-bold text-yellow-400">Python</p>
+                  <p class="text-sm text-slate-400">Automatización</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-center lg:justify-end">
+              <div class="relative">
+                <div class="absolute inset-0 bg-yellow-400/20 blur-2xl rounded-[2rem]"></div>
+                <div class="relative w-64 h-80 md:w-72 md:h-96 rounded-[2rem] overflow-hidden border border-yellow-400/30 bg-slate-800 shadow-2xl">
+                  <img
+                    src="https://via.placeholder.com/500x700"
+                    alt="Foto profesional"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Perfil -->
+        <section id="perfil" class="grid lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 rounded-[2rem] bg-slate-900 border border-slate-800 p-8 shadow-xl">
+            <p class="text-yellow-400 text-sm uppercase tracking-[0.25em] mb-3">Perfil</p>
+            <h3 class="text-3xl font-bold text-white mb-4">Sobre mí</h3>
+            <p class="text-slate-300 leading-relaxed text-lg">
+              Me enfoco en convertir datos en información útil mediante automatización,
+              análisis, estadística y visualización. Me interesa construir soluciones
+              eficientes, claras y visualmente bien presentadas, uniendo pensamiento
+              analítico con ejecución técnica.
+            </p>
+          </div>
+
+          <div class="rounded-[2rem] bg-gradient-to-br from-yellow-400 to-amber-500 text-slate-950 p-8 shadow-xl">
+            <p class="text-sm uppercase tracking-[0.25em] font-semibold mb-3">Enfoque</p>
+            <h3 class="text-2xl font-bold mb-4">Valor que aporto</h3>
+            <ul class="space-y-3 text-sm md:text-base font-medium">
+              <li>• Automatización de procesos repetitivos</li>
+              <li>• Desarrollo de dashboards y reportes</li>
+              <li>• Consulta y transformación de datos</li>
+              <li>• Análisis con enfoque de negocio</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Experiencia -->
+        <section id="experiencia" class="rounded-[2rem] bg-slate-900 border border-slate-800 p-8 shadow-xl">
+          <p class="text-yellow-400 text-sm uppercase tracking-[0.25em] mb-3">Trayectoria</p>
+          <h3 class="text-3xl font-bold text-white mb-8">Experiencia</h3>
+
+          <div class="space-y-6">
+            <div class="rounded-2xl bg-slate-800/70 border border-slate-700 p-6 hover:border-yellow-400/40 transition">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                <div>
+                  <h4 class="text-xl font-bold text-white">Analista de Datos / Business Intelligence</h4>
+                  <p class="text-yellow-400 font-medium">Nombre de institución o empresa</p>
+                </div>
+                <span class="px-4 py-2 rounded-full bg-slate-700 text-slate-300 text-sm w-fit">2024 - Actualidad</span>
+              </div>
+              <p class="mt-4 text-slate-300 leading-relaxed">
+                Desarrollo de automatizaciones, consultas SQL, reportes ejecutivos y dashboards
+                orientados al monitoreo y análisis de indicadores.
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-slate-800/70 border border-slate-700 p-6 hover:border-yellow-400/40 transition">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                <div>
+                  <h4 class="text-xl font-bold text-white">Proyecto / experiencia relevante</h4>
+                  <p class="text-yellow-400 font-medium">Institución / academia / práctica</p>
+                </div>
+                <span class="px-4 py-2 rounded-full bg-slate-700 text-slate-300 text-sm w-fit">Año - Año</span>
+              </div>
+              <p class="mt-4 text-slate-300 leading-relaxed">
+                Aquí puedes colocar una experiencia importante que fortalezca tu perfil técnico,
+                analítico o profesional.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Proyectos -->
+        <section id="proyectos" class="rounded-[2rem] bg-slate-900 border border-slate-800 p-8 shadow-xl">
+          <p class="text-yellow-400 text-sm uppercase tracking-[0.25em] mb-3">Portafolio</p>
+          <h3 class="text-3xl font-bold text-white mb-8">Proyectos destacados</h3>
+
+          <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <article class="group rounded-3xl bg-slate-800 border border-slate-700 overflow-hidden hover:-translate-y-1 hover:border-yellow-400/40 transition duration-300">
+              <div class="h-40 bg-gradient-to-br from-blue-900 to-slate-900 flex items-center justify-center text-yellow-400 text-4xl font-bold">
+                01
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-bold text-white">Automatización de reportes</h4>
+                <p class="mt-3 text-slate-400 leading-relaxed">
+                  Generación automática de reportes con Python, consolidación de datos y exportación a Excel.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-full bg-slate-700 text-xs text-yellow-300">Python</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-700 text-xs text-yellow-300">SQL</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-700 text-xs text-yellow-300">Excel</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="group rounded-3xl bg-slate-800 border border-slate-700 overflow-hidden hover:-translate-y-1 hover:border-yellow-400/40 transition duration-300">
+              <div class="h-40 bg-gradient-to-br from-yellow-500 to-amber-600 flex items-center justify-center text-slate-950 text-4xl font-bold">
+                02
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-bold text-white">Dashboards ejecutivos</h4>
+                <p class="mt-3 text-slate-400 leading-relaxed">
+                  Construcción de tableros interactivos para indicadores, seguimiento y análisis comparativo.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-full bg-slate-700 text-xs text-yellow-300">Power BI</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-700 text-xs text-yellow-300">DAX</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-700 text-xs text-yellow-300">BI</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="group rounded-3xl bg-slate-800 border border-slate-700 overflow-hidden hover:-translate-y-1 hover:border-yellow-400/40 transition duration-300">
+              <div class="h-40 bg-gradient-to-br from-slate-700 to-slate-950 flex items-center justify-center text-yellow-400 text-4xl font-bold">
+                03
+              </div>
+              <div class="p-6">
+                <h4 class="text-xl font-bold text-white">OCR y extracción de datos</h4>
+                <p class="mt-3 text-slate-400 leading-relaxed">
+                  Herramientas para capturar texto desde imágenes o documentos y estructurarlo para análisis.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-full bg-slate-700 text-xs text-yellow-300">OCR</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-700 text-xs text-yellow-300">OpenCV</span>
+                  <span class="px-3 py-1 rounded-full bg-slate-700 text-xs text-yellow-300">Python</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Habilidades -->
+        <section id="habilidades" class="grid lg:grid-cols-2 gap-6">
+          <div class="rounded-[2rem] bg-slate-900 border border-slate-800 p-8 shadow-xl">
+            <p class="text-yellow-400 text-sm uppercase tracking-[0.25em] mb-3">Tecnologías</p>
+            <h3 class="text-3xl font-bold text-white mb-6">Stack</h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200">Python</span>
+              <span class="px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200">SQL</span>
+              <span class="px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200">Power BI</span>
+              <span class="px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200">Oracle</span>
+              <span class="px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200">Excel</span>
+              <span class="px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200">Git</span>
+              <span class="px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200">Streamlit</span>
+              <span class="px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-200">OpenCV</span>
+            </div>
+          </div>
+
+          <div class="rounded-[2rem] bg-slate-900 border border-slate-800 p-8 shadow-xl">
+            <p class="text-yellow-400 text-sm uppercase tracking-[0.25em] mb-3">Fortalezas</p>
+            <h3 class="text-3xl font-bold text-white mb-6">Áreas</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="rounded-2xl bg-slate-800 p-4 border border-slate-700">
+                <p class="text-white font-semibold">Análisis de datos</p>
+              </div>
+              <div class="rounded-2xl bg-slate-800 p-4 border border-slate-700">
+                <p class="text-white font-semibold">BI</p>
+              </div>
+              <div class="rounded-2xl bg-slate-800 p-4 border border-slate-700">
+                <p class="text-white font-semibold">Automatización</p>
+              </div>
+              <div class="rounded-2xl bg-slate-800 p-4 border border-slate-700">
+                <p class="text-white font-semibold">Estadística</p>
+              </div>
+              <div class="rounded-2xl bg-slate-800 p-4 border border-slate-700">
+                <p class="text-white font-semibold">Dashboards</p>
+              </div>
+              <div class="rounded-2xl bg-slate-800 p-4 border border-slate-700">
+                <p class="text-white font-semibold">OCR</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Educación -->
+        <section id="educacion" class="rounded-[2rem] bg-slate-900 border border-slate-800 p-8 shadow-xl">
+          <p class="text-yellow-400 text-sm uppercase tracking-[0.25em] mb-3">Formación</p>
+          <h3 class="text-3xl font-bold text-white mb-8">Educación</h3>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="rounded-3xl bg-slate-800 border border-slate-700 p-6">
+              <p class="text-yellow-400 text-sm mb-2">Actualidad</p>
+              <h4 class="text-xl font-bold text-white">Maestría en Matemática Estadística</h4>
+              <p class="mt-2 text-slate-400">Universidad Nacional Autónoma de Honduras</p>
+            </div>
+
+            <div class="rounded-3xl bg-slate-800 border border-slate-700 p-6">
+              <p class="text-yellow-400 text-sm mb-2">Finalizada</p>
+              <h4 class="text-xl font-bold text-white">Licenciatura en Matemática con orientación en Informática</h4>
+              <p class="mt-2 text-slate-400">Universidad Nacional Autónoma de Honduras</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto" class="rounded-[2rem] bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-950 p-8 md:p-10 shadow-2xl">
+          <p class="text-sm uppercase tracking-[0.25em] font-semibold mb-3">Conexión</p>
+          <h3 class="text-3xl md:text-4xl font-extrabold mb-4">Hablemos</h3>
+          <p class="max-w-2xl text-base md:text-lg font-medium">
+            Puedes colocar aquí tus enlaces reales para que cualquier reclutador o persona
+            interesada entre directamente a contactarte o revisar tu trabajo.
+          </p>
+
+          <div class="mt-8 grid md:grid-cols-3 gap-4">
+            <a href="#" class="rounded-2xl bg-slate-950 text-white p-5 hover:scale-[1.02] transition block">
+              <p class="text-sm text-yellow-400">Email</p>
+              <p class="mt-1 font-semibold">tucorreo@ejemplo.com</p>
+            </a>
+
+            <a href="#" class="rounded-2xl bg-slate-950 text-white p-5 hover:scale-[1.02] transition block">
+              <p class="text-sm text-yellow-400">LinkedIn</p>
+              <p class="mt-1 font-semibold">linkedin.com/in/tuusuario</p>
+            </a>
+
+            <a href="#" class="rounded-2xl bg-slate-950 text-white p-5 hover:scale-[1.02] transition block">
+              <p class="text-sm text-yellow-400">GitHub</p>
+              <p class="mt-1 font-semibold">github.com/tuusuario</p>
+            </a>
+          </div>
+        </section>
+
+        <footer class="text-center text-slate-500 text-sm py-4">
+          © 2026 Eunice Moreno · CV Web
+        </footer>
+      </div>
+    </main>
   </div>
 
 </body>
