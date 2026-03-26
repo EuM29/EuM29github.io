@@ -1,131 +1,230 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV Web | Ruth Moreno</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class"
+    };
+  </script>
+  <style>
+    .glass {
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(59, 130, 246, 0.35);
+      border-radius: 9999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(59, 130, 246, 0.6);
+    }
+  </style>
 </head>
-<body class="bg-slate-950 text-slate-100 selection:bg-blue-400 selection:text-slate-950">
+<body class="bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100 selection:bg-blue-400 selection:text-slate-950 transition-colors duration-500">
 
   <div class="flex min-h-screen">
 
     <!-- Sidebar -->
-    <aside class="w-72 bg-slate-950/95 border-r border-blue-400/20 p-6 hidden md:flex md:flex-col justify-between fixed top-0 left-0 h-screen backdrop-blur-xl">
+    <aside class="hidden md:flex fixed top-0 left-0 h-screen w-72 flex-col justify-between border-r border-slate-200/70 bg-white/80 dark:bg-slate-950/85 dark:border-blue-400/15 glass p-6 z-40 transition-colors duration-500">
       <div>
         <div class="mb-10">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-700 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-blue-900/40">
-            E
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-800 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-blue-900/30">
+            R
           </div>
-          <h1 class="mt-4 text-2xl font-bold text-white">Ruth Moreno</h1>
-          <p class="text-sm text-slate-400 mt-1" data-es="Datos · BI · Estadística · Automatización" data-en="Data · BI · Statistics · Automation">
+          <h1 class="mt-4 text-2xl font-bold text-slate-900 dark:text-white">Ruth Moreno</h1>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1" data-es="Datos · BI · Estadística · Automatización" data-en="Data · BI · Statistics · Automation">
             Datos · BI · Estadística · Automatización
           </p>
         </div>
 
         <nav class="space-y-2">
-          <a href="#inicio" class="block px-4 py-3 rounded-xl bg-slate-900 hover:bg-blue-500 hover:text-white transition font-medium" data-es="Inicio" data-en="Home">Inicio</a>
-          <a href="#perfil" class="block px-4 py-3 rounded-xl text-slate-300 hover:bg-blue-500 hover:text-white transition font-medium" data-es="Perfil" data-en="Profile">Perfil</a>
-          <a href="#experiencia" class="block px-4 py-3 rounded-xl text-slate-300 hover:bg-blue-500 hover:text-white transition font-medium" data-es="Experiencia" data-en="Experience">Experiencia</a>
-          <a href="#proyectos" class="block px-4 py-3 rounded-xl text-slate-300 hover:bg-blue-500 hover:text-white transition font-medium" data-es="Proyectos" data-en="Projects">Proyectos</a>
-          <a href="#habilidades" class="block px-4 py-3 rounded-xl text-slate-300 hover:bg-blue-500 hover:text-white transition font-medium" data-es="Habilidades" data-en="Skills">Habilidades</a>
-          <a href="#educacion" class="block px-4 py-3 rounded-xl text-slate-300 hover:bg-blue-500 hover:text-white transition font-medium" data-es="Educación" data-en="Education">Educación</a>
-          <a href="#contacto" class="block px-4 py-3 rounded-xl text-slate-300 hover:bg-blue-500 hover:text-white transition font-medium" data-es="Contacto" data-en="Contact">Contacto</a>
+          <a href="#inicio" class="group flex items-center gap-3 px-4 py-3 rounded-xl bg-blue-600 text-white font-medium shadow-md shadow-blue-900/20">
+            <span>⌂</span>
+            <span data-es="Inicio" data-en="Home">Inicio</span>
+          </a>
+          <a href="#perfil" class="group flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-blue-500 hover:text-white transition">
+            <span>○</span>
+            <span data-es="Perfil" data-en="Profile">Perfil</span>
+          </a>
+          <a href="#experiencia" class="group flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-blue-500 hover:text-white transition">
+            <span>◔</span>
+            <span data-es="Experiencia" data-en="Experience">Experiencia</span>
+          </a>
+          <a href="#proyectos" class="group flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-blue-500 hover:text-white transition">
+            <span>▣</span>
+            <span data-es="Proyectos" data-en="Projects">Proyectos</span>
+          </a>
+          <a href="#habilidades" class="group flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-blue-500 hover:text-white transition">
+            <span>△</span>
+            <span data-es="Habilidades" data-en="Skills">Habilidades</span>
+          </a>
+          <a href="#educacion" class="group flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-blue-500 hover:text-white transition">
+            <span>□</span>
+            <span data-es="Educación" data-en="Education">Educación</span>
+          </a>
+          <a href="#contacto" class="group flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-blue-500 hover:text-white transition">
+            <span>✉</span>
+            <span data-es="Contacto" data-en="Contact">Contacto</span>
+          </a>
         </nav>
-      </div>
-
-      <div class="space-y-4">
-        <!-- Language Switch -->
-        <div class="rounded-2xl border border-blue-400/20 bg-slate-900 p-4">
-          <p class="text-xs uppercase tracking-[0.2em] text-blue-300 mb-3" data-es="Idioma" data-en="Language">Idioma</p>
-          <div class="flex items-center justify-between">
-            <span class="text-sm text-slate-300">ES</span>
-            <button id="langToggle" class="relative w-16 h-9 rounded-full bg-slate-700 border border-blue-400/20 transition">
-              <span id="langKnob" class="absolute top-1 left-1 w-7 h-7 rounded-full bg-gradient-to-br from-blue-400 to-blue-700 transition-all duration-300 shadow-md"></span>
-            </button>
-            <span class="text-sm text-slate-300">EN</span>
-          </div>
-        </div>
-
-        <div class="rounded-2xl bg-gradient-to-br from-blue-500 to-blue-800 p-[1px]">
-          <div class="rounded-2xl bg-slate-950 p-4">
-            <p class="text-xs uppercase tracking-widest text-blue-300 mb-2" data-es="Disponible para" data-en="Available for">
-              Disponible para
-            </p>
-            <p class="text-sm text-slate-300" data-es="Análisis de datos, BI, automatización, dashboards y proyectos tecnológicos." data-en="Data analysis, BI, automation, dashboards, and technology projects.">
-              Análisis de datos, BI, automatización, dashboards y proyectos tecnológicos.
-            </p>
-          </div>
-        </div>
       </div>
     </aside>
 
     <!-- Main -->
     <main class="w-full md:ml-72">
-
-      <!-- Mobile top bar -->
-      <div class="md:hidden sticky top-0 z-50 bg-slate-950/95 backdrop-blur border-b border-blue-400/20 px-4 py-4">
-        <div class="flex items-center justify-between gap-4">
+      <!-- Mobile header -->
+      <div class="md:hidden sticky top-0 z-50 border-b border-slate-200 dark:border-blue-400/15 bg-white/85 dark:bg-slate-950/90 glass px-4 py-4 transition-colors duration-500">
+        <div class="flex items-center justify-between gap-3">
           <div>
-            <h1 class="text-lg font-bold text-white">Eunice Moreno</h1>
-            <p class="text-xs text-slate-400">CV Web</p>
+            <h1 class="text-lg font-bold text-slate-900 dark:text-white">Ruth Moreno</h1>
+            <p class="text-xs text-slate-500 dark:text-slate-400">CV Web</p>
           </div>
-          <button id="langToggleMobile" class="px-4 py-2 rounded-xl bg-slate-800 border border-blue-400/20 text-sm text-slate-200">
-            ES
-          </button>
+          <div class="flex items-center gap-2">
+            <button id="langToggleMobile" class="px-3 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-blue-400/20 text-sm text-slate-700 dark:text-slate-200 transition">
+              ES
+            </button>
+            <button id="themeToggleMobile" class="px-3 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-blue-400/20 text-sm text-slate-700 dark:text-slate-200 transition">
+              ☾
+            </button>
+          </div>
         </div>
       </div>
 
       <div class="p-6 md:p-10 space-y-8">
 
         <!-- Hero -->
-        <section id="inicio" class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 border border-blue-400/20 shadow-2xl">
+
+        <div class="grid grid-cols-2 gap-3 w-full max-w-sm ml-auto">
+
+        <!-- Language -->
+        <div class="rounded-xl border border-slate-200 dark:border-blue-400/20 bg-white/80 dark:bg-slate-900 p-3 transition-colors duration-500">
+            
+            <p class="text-[10px] uppercase tracking-[0.25em] text-blue-600 dark:text-blue-300 mb-2"
+            data-es="Idioma" data-en="Language">
+            Idioma
+            </p>
+
+            <div class="flex items-center justify-between gap-1">
+            <span class="text-xs text-slate-600 dark:text-slate-300">ES</span>
+
+            <button id="langToggle"
+                class="relative w-10 h-6 rounded-full bg-slate-200 dark:bg-slate-700 border border-slate-300 dark:border-blue-400/20 transition shrink-0">
+                
+                <span id="langKnob"
+                class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-gradient-to-br from-blue-500 to-blue-800 transition-all duration-300 shadow-md">
+                </span>
+
+            </button>
+
+            <span class="text-xs text-slate-600 dark:text-slate-300">EN</span>
+            </div>
+        </div>
+
+        <!-- Theme -->
+        <div class="rounded-xl border border-slate-200 dark:border-blue-400/20 bg-white/80 dark:bg-slate-900 p-3 transition-colors duration-500">
+            
+            <p class="text-[10px] uppercase tracking-[0.25em] text-blue-600 dark:text-blue-300 mb-2"
+            data-es="Tema" data-en="Theme">
+            Tema
+            </p>
+
+            <div class="flex items-center justify-between gap-1">
+            <span class="text-xs text-slate-600 dark:text-slate-300">☾</span>
+
+            <button id="themeToggle"
+                class="relative w-10 h-6 rounded-full bg-slate-200 dark:bg-slate-700 border border-slate-300 dark:border-blue-400/20 transition shrink-0">
+                
+                <span id="themeKnob"
+                class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-gradient-to-br from-blue-500 to-blue-800 transition-all duration-300 shadow-md">
+                </span>
+
+            </button>
+
+            <span class="text-xs text-slate-600 dark:text-slate-300">☀</span>
+            </div>
+        </div>
+
+        </div>
+
+        <section id="inicio" class="fade-up relative overflow-hidden rounded-[2rem] border border-slate-200 dark:border-blue-400/15 bg-gradient-to-br from-white via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 shadow-2xl transition-colors duration-500">
           <div class="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 blur-3xl rounded-full"></div>
           <div class="absolute bottom-0 left-0 w-80 h-80 bg-cyan-400/10 blur-3xl rounded-full"></div>
-
           <div class="relative grid lg:grid-cols-3 gap-8 p-8 md:p-12 items-center">
             <div class="lg:col-span-2">
-              <p class="uppercase tracking-[0.3em] text-xs text-blue-300 mb-4" data-es="CV · Portafolio · Perfil Profesional" data-en="CV · Portfolio · Professional Profile">
+              <p class="uppercase tracking-[0.3em] text-xs text-blue-600 dark:text-blue-300 mb-4" data-es="CV · Portafolio · Perfil Profesional" data-en="CV · Portfolio · Professional Profile">
                 CV · Portafolio · Perfil Profesional
               </p>
-              <h2 class="text-4xl md:text-6xl font-extrabold leading-tight text-white">
-                <span data-es="Diseño, datos y soluciones" data-en="Design, data and solutions">Diseño, datos y soluciones</span>
-                <span class="text-blue-400 block" data-es="con impacto" data-en="with impact">con impacto</span>
+
+              <h2 class="text-4xl md:text-6xl font-extrabold leading-tight text-slate-900 dark:text-white">
+                <span data-es="Ruth Eunice" data-en="Ruth Eunice">
+                  Ruth Eunice Moreno Melara
+                </span>
+                <span class="text-blue-500 block" data-es="Moreno Melara" data-en="Moreno Melara">
+                  Transformando datos en decisiones con impacto real
+                </span>
               </h2>
-              <p class="mt-6 text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed"
+
+              <p class="mt-6 text-slate-600 dark:text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed"
                  data-es="Profesional enfocada en análisis de datos, automatización de reportes, estadística aplicada, dashboards e integración de información para la toma de decisiones."
-                 data-en="Professional focused on data analysis, report automation, applied statistics, dashboards, and information integration for decision-making.">
+                 data-en="Professional focused on data analysis, report automation, applied statistics, dashboards, and information integration for decision making.">
                 Profesional enfocada en análisis de datos, automatización de reportes, estadística aplicada, dashboards e integración de información para la toma de decisiones.
               </p>
 
               <div class="mt-8 flex flex-wrap gap-4">
-                <a href="#proyectos" class="px-6 py-3 rounded-xl bg-blue-500 text-white font-bold hover:bg-blue-400 transition shadow-lg shadow-blue-900/30" data-es="Ver proyectos" data-en="View projects">
+                <a href="#proyectos" class="px-6 py-3 rounded-xl bg-blue-400 text-white font-bold hover:bg-blue-500 transition shadow-lg shadow-blue-900/20" data-es="Ver proyectos" data-en="View projects">
                   Ver proyectos
                 </a>
-                <a href="#contacto" class="px-6 py-3 rounded-xl border border-slate-600 text-white hover:border-blue-400 hover:text-blue-300 transition" data-es="Contactar" data-en="Contact">
+                <a href="#contacto" class="px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-600 text-slate-800 dark:text-white hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-300 transition" data-es="Contactar" data-en="Contact">
                   Contactar
                 </a>
-                <a href="cv.pdf" class="px-6 py-3 rounded-xl bg-slate-900 text-slate-200 hover:bg-slate-800 transition" data-es="Descargar CV" data-en="Download CV">
-                  Descargar CV
-                </a>
+                <a href="E:\Eu\Trabajos UNAH\Curriculum\CV WEB\cv_diseño.pdf"
+                    class="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:from-blue-400 hover:to-blue-600 transition shadow-lg shadow-blue-900/30"
+                    data-es="Descargar CV" data-en="Download CV">
+                    Descargar CV
+                    </a>
               </div>
 
               <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="rounded-2xl bg-slate-900/70 border border-slate-800 p-4">
-                  <p class="text-2xl font-bold text-blue-400">+3</p>
-                  <p class="text-sm text-slate-400" data-es="Áreas clave" data-en="Core areas">Áreas clave</p>
+                <div class="rounded-2xl bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 p-4 transition-colors duration-500">
+                  <p class="text-2xl font-bold text-blue-500">SQL</p>
+                  <p class="text-sm text-slate-500 dark:text-slate-400" data-es="Bases de datos" data-en="Databases">Bases de datos</p>
                 </div>
-                <div class="rounded-2xl bg-slate-900/70 border border-slate-800 p-4">
-                  <p class="text-2xl font-bold text-blue-400">SQL</p>
-                  <p class="text-sm text-slate-400" data-es="Bases de datos" data-en="Databases">Bases de datos</p>
+                <div class="rounded-2xl bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 p-4 transition-colors duration-500">
+                  <p class="text-2xl font-bold text-blue-500">Knime</p>
+                  <p class="text-sm text-slate-500 dark:text-slate-400" data-es="Minería de datos" data-en="Data Mining">Minería de datos</p>
                 </div>
-                <div class="rounded-2xl bg-slate-900/70 border border-slate-800 p-4">
-                  <p class="text-2xl font-bold text-blue-400">BI</p>
-                  <p class="text-sm text-slate-400" data-es="Visualización" data-en="Visualization">Visualización</p>
+                <div class="rounded-2xl bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 p-4 transition-colors duration-500">
+                  <p class="text-2xl font-bold text-blue-500">BI</p>
+                  <p class="text-sm text-slate-500 dark:text-slate-400" data-es="Visualización" data-en="Visualization">Visualización</p>
                 </div>
-                <div class="rounded-2xl bg-slate-900/70 border border-slate-800 p-4">
-                  <p class="text-2xl font-bold text-blue-400">Python</p>
-                  <p class="text-sm text-slate-400" data-es="Automatización" data-en="Automation">Automatización</p>
+                <div class="rounded-2xl bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 p-4 transition-colors duration-500">
+                  <p class="text-2xl font-bold text-blue-500">Python</p>
+                  <p class="text-sm text-slate-500 dark:text-slate-400" data-es="Automatización" data-en="Automation">Automatización</p>
                 </div>
               </div>
             </div>
@@ -133,10 +232,10 @@
             <div class="flex justify-center lg:justify-end">
               <div class="relative">
                 <div class="absolute inset-0 bg-blue-500/20 blur-2xl rounded-[2rem]"></div>
-                <div class="relative w-64 h-80 md:w-72 md:h-96 rounded-[2rem] overflow-hidden border border-blue-400/30 bg-slate-900 shadow-2xl">
+                <div class="relative w-64 h-80 md:w-72 md:h-96 rounded-[2rem] overflow-hidden border border-blue-400/30 bg-slate-200 dark:bg-slate-900 shadow-2xl">
                   <img
-                    src="https://via.placeholder.com/500x700"
-                    alt="Foto profesional"
+                    src="E:\Eu\Trabajos UNAH\Curriculum\CV WEB\fotos\perfil.png"
+                    alt="Ruth Moreno"
                     class="w-full h-full object-cover"
                   />
                 </div>
@@ -146,18 +245,18 @@
         </section>
 
         <!-- Perfil -->
-        <section id="perfil" class="grid lg:grid-cols-3 gap-6">
-          <div class="lg:col-span-2 rounded-[2rem] bg-slate-950 border border-slate-800 p-8 shadow-xl">
-            <p class="text-blue-300 text-sm uppercase tracking-[0.25em] mb-3" data-es="Perfil" data-en="Profile">Perfil</p>
-            <h3 class="text-3xl font-bold text-white mb-4" data-es="Sobre mí" data-en="About me">Sobre mí</h3>
-            <p class="text-slate-300 leading-relaxed text-lg"
+        <section id="perfil" class="fade-up grid lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 rounded-[2rem] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-8 shadow-xl transition-colors duration-500">
+            <p class="text-blue-600 dark:text-blue-300 text-sm uppercase tracking-[0.25em] mb-3" data-es="Perfil" data-en="Profile">Perfil</p>
+            <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-4" data-es="Sobre mí" data-en="About me">Sobre mí</h3>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-lg"
                data-es="Me enfoco en convertir datos en información útil mediante automatización, análisis, estadística y visualización. Me interesa construir soluciones eficientes, claras y visualmente bien presentadas, uniendo pensamiento analítico con ejecución técnica."
-               data-en="I focus on turning data into useful information through automation, analysis, statistics, and visualization. I am interested in building efficient, clear, and visually well-presented solutions that combine analytical thinking with technical execution.">
+               data-en="I focus on turning data into useful information through automation, analysis, statistics, and visualization. I am interested in building efficient, clear, and visually polished solutions that combine analytical thinking with technical execution.">
               Me enfoco en convertir datos en información útil mediante automatización, análisis, estadística y visualización. Me interesa construir soluciones eficientes, claras y visualmente bien presentadas, uniendo pensamiento analítico con ejecución técnica.
             </p>
           </div>
 
-          <div class="rounded-[2rem] bg-gradient-to-br from-blue-500 to-blue-800 text-white p-8 shadow-xl">
+          <div class="rounded-[2rem] bg-gradient-to-br from-blue-600 to-blue-800 text-white p-8 shadow-xl">
             <p class="text-sm uppercase tracking-[0.25em] font-semibold mb-3 text-blue-100" data-es="Enfoque" data-en="Focus">Enfoque</p>
             <h3 class="text-2xl font-bold mb-4" data-es="Valor que aporto" data-en="Value I bring">Valor que aporto</h3>
             <ul class="space-y-3 text-sm md:text-base font-medium">
@@ -170,195 +269,412 @@
         </section>
 
         <!-- Experiencia -->
-        <section id="experiencia" class="rounded-[2rem] bg-slate-950 border border-slate-800 p-8 shadow-xl">
-          <p class="text-blue-300 text-sm uppercase tracking-[0.25em] mb-3" data-es="Trayectoria" data-en="Career">Trayectoria</p>
-          <h3 class="text-3xl font-bold text-white mb-8" data-es="Experiencia" data-en="Experience">Experiencia</h3>
+        <section id="experiencia" class="fade-up rounded-[2rem] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-8 shadow-xl transition-colors duration-500">
+          <p class="text-blue-600 dark:text-blue-300 text-sm uppercase tracking-[0.25em] mb-3" data-es="Trayectoria" data-en="Career">Trayectoria</p>
+          <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-8" data-es="Experiencia" data-en="Experience">Experiencia</h3>
 
           <div class="space-y-6">
-            <div class="rounded-2xl bg-slate-900/70 border border-slate-800 p-6 hover:border-blue-400/40 transition">
+            <div class="rounded-2xl bg-slate-50 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 p-6 hover:border-blue-400/50 hover:-translate-y-1 transition duration-300">
               <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                 <div>
-                  <h4 class="text-xl font-bold text-white" data-es="Analista de Datos / Business Intelligence" data-en="Data Analyst / Business Intelligence">
+                  <h4 class="text-xl font-bold text-slate-900 dark:text-white" data-es="Analista de Datos / Business Intelligence" data-en="Data Analyst / Business Intelligence">
                     Analista de Datos / Business Intelligence
                   </h4>
-                  <p class="text-blue-400 font-medium" data-es="Nombre de institución o empresa" data-en="Institution or company name">
-                    Nombre de institución o empresa
+                  <p class="text-blue-600 dark:text-blue-400 font-medium" data-es="Administración Aduanera de Honduras" data-en="Honduran Customs Administration">
+                    Administración Aduanera de Honduras
                   </p>
                 </div>
-                <span class="px-4 py-2 rounded-full bg-slate-800 text-slate-300 text-sm w-fit" data-es="2024 - Actualidad" data-en="2024 - Present">2024 - Actualidad</span>
+                <span class="px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm w-fit" data-es="2024 - Actualidad" data-en="2024 - Present">2024 - Actualidad</span>
               </div>
-              <p class="mt-4 text-slate-300 leading-relaxed"
+              <p class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed"
                  data-es="Desarrollo de automatizaciones, consultas SQL, reportes ejecutivos y dashboards orientados al monitoreo y análisis de indicadores."
                  data-en="Development of automations, SQL queries, executive reports, and dashboards focused on monitoring and indicator analysis.">
                 Desarrollo de automatizaciones, consultas SQL, reportes ejecutivos y dashboards orientados al monitoreo y análisis de indicadores.
               </p>
             </div>
 
-            <div class="rounded-2xl bg-slate-900/70 border border-slate-800 p-6 hover:border-blue-400/40 transition">
-              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-                <div>
-                  <h4 class="text-xl font-bold text-white" data-es="Proyecto / experiencia relevante" data-en="Relevant project / experience">
-                    Proyecto / experiencia relevante
-                  </h4>
-                  <p class="text-blue-400 font-medium" data-es="Institución / academia / práctica" data-en="Institution / academia / internship">
-                    Institución / academia / práctica
-                  </p>
+            <div class="rounded-2xl bg-slate-50 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 p-6 hover:border-blue-400/50 hover:-translate-y-1 transition duration-300">
+  
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                    
+                    <div>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-white"
+                        data-es="Asistente de Investigación"
+                        data-en="Research Assistant">
+                        Asistente de Investigación
+                    </h4>
+
+                    <p class="text-blue-600 dark:text-blue-400 font-medium"
+                        data-es="Escuela de Matemática y Ciencias de la Computación UNAH"
+                        data-en="School of Mathematics and Computer Science, UNAH">
+                        Escuela de Matemática y Ciencias de la Computación UNAH
+                    </p>
+                    </div>
+
+                    <span class="px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm w-fit"
+                        data-es="2023 - 2024"
+                        data-en="2023 - 2024">
+                    2023 - 2024
+                    </span>
+
                 </div>
-                <span class="px-4 py-2 rounded-full bg-slate-800 text-slate-300 text-sm w-fit" data-es="Año - Año" data-en="Year - Year">Año - Año</span>
-              </div>
-              <p class="mt-4 text-slate-300 leading-relaxed"
-                 data-es="Aquí puedes colocar una experiencia importante que fortalezca tu perfil técnico, analítico o profesional."
-                 data-en="Here you can include an important experience that strengthens your technical, analytical, or professional profile.">
-                Aquí puedes colocar una experiencia importante que fortalezca tu perfil técnico, analítico o profesional.
-              </p>
-            </div>
+
+                <p class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed"
+                    data-es="Colaboración en proyecto de investigación en Matemática Aplicada, Machine Learning y Visión por Computadora. Desarrollo y análisis de modelos de Redes Neuronales Convolucionales y algoritmos para procesamiento de datos, así como redacción de informes científicos."
+                    data-en="Collaboration in a research project in Applied Mathematics, Machine Learning, and Computer Vision. Development and analysis of Convolutional Neural Network models and data processing algorithms, as well as scientific report writing.">
+                    
+                    Colaboración en proyecto de investigación en Matemática Aplicada, Machine Learning y Visión por Computadora. Desarrollo y análisis de modelos de Redes Neuronales Convolucionales y algoritmos para procesamiento de datos, así como redacción de informes científicos.
+                
+                </p>
+
+                </div> 
+
+
+
+                <div class="rounded-2xl bg-slate-50 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 p-6 hover:border-blue-400/50 hover:-translate-y-1 transition duration-300">
+  
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                    
+                    <div>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-white"
+                        data-es="Instructor de Matemática"
+                        data-en="Mathematics Instructor">
+                        Instructor de Matemática
+                    </h4>
+
+                    <p class="text-blue-600 dark:text-blue-400 font-medium"
+                        data-es="Laboratorio de Matemática y Ciencias de la Computación UNAH"
+                        data-en="Mathematics and Computer Science Laboratory, UNAH">
+                        Laboratorio de Matemática y Ciencias de la Computación UNAH
+                    </p>
+                    </div>
+
+                    <span class="px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm w-fit"
+                        data-es="2022 - 2023"
+                        data-en="2022 - 2023">
+                    2022 - 2023
+                    </span>
+
+                </div>
+
+                <p class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed"
+                    data-es="Apoyo académico a estudiantes en el uso de software estadístico y resolución de problemas en matemáticas. Gestión de clases virtuales en el campus de la UNAH, brindando acompañamiento técnico y académico en procesos de aprendizaje."
+                    data-en="Academic support to students in the use of statistical software and problem solving in mathematics. Management of virtual classes on the UNAH campus, providing both technical and academic guidance in learning processes.">
+                    
+                    Apoyo académico a estudiantes en el uso de software estadístico y resolución de problemas en matemáticas. Gestión de clases virtuales en el campus de la UNAH, brindando acompañamiento técnico y académico en procesos de aprendizaje.
+                
+                </p>
+
+                </div>
           </div>
         </section>
 
-        <!-- Proyectos -->
-        <section id="proyectos" class="rounded-[2rem] bg-slate-950 border border-slate-800 p-8 shadow-xl">
-          <p class="text-blue-300 text-sm uppercase tracking-[0.25em] mb-3" data-es="Portafolio" data-en="Portfolio">Portafolio</p>
-          <h3 class="text-3xl font-bold text-white mb-8" data-es="Proyectos destacados" data-en="Featured projects">Proyectos destacados</h3>
+        <!-- Projects -->
+        <section id="proyectos" class="fade-up rounded-[2rem] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-8 shadow-xl transition-colors duration-500">
+          <p class="text-blue-600 dark:text-blue-300 text-sm uppercase tracking-[0.25em] mb-3" data-es="Portafolio" data-en="Portfolio">Portafolio</p>
+          <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-8" data-es="Proyectos destacados" data-en="Featured projects">Proyectos destacados</h3>
 
           <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-            <article class="group rounded-3xl bg-slate-900 border border-slate-800 overflow-hidden hover:-translate-y-1 hover:border-blue-400/40 transition duration-300">
-              <div class="h-40 bg-gradient-to-br from-blue-900 to-slate-950 flex items-center justify-center text-blue-300 text-4xl font-bold">01</div>
-              <div class="p-6">
-                <h4 class="text-xl font-bold text-white" data-es="Automatización de reportes" data-en="Report automation">Automatización de reportes</h4>
-                <p class="mt-3 text-slate-400 leading-relaxed"
-                   data-es="Generación automática de reportes con Python, consolidación de datos y exportación a Excel."
-                   data-en="Automatic report generation with Python, data consolidation, and Excel export.">
-                  Generación automática de reportes con Python, consolidación de datos y exportación a Excel.
-                </p>
-              </div>
-            </article>
+            <a href="proyectos\reportes_automaticos.html" class="block">
+            <article class="group rounded-3xl overflow-hidden bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:-translate-y-1 hover:border-blue-400/50 transition duration-300 cursor-pointer">
+                <div class="h-40 bg-gradient-to-br from-blue-700 to-slate-900 flex items-center justify-center text-blue-200 text-4xl font-bold">
+                01
+                </div>
+                <div class="p-6">
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white"
+                    data-es="Automatización de reportes"
+                    data-en="Report automation">
+                    Automatización de reportes
+                </h4>
 
-            <article class="group rounded-3xl bg-slate-900 border border-slate-800 overflow-hidden hover:-translate-y-1 hover:border-blue-400/40 transition duration-300">
+                <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed"
+                    data-es="Generación automática de reportes con Python, consolidación de datos y exportación a Excel."
+                    data-en="Automatic report generation with Python, data consolidation, and Excel export.">
+                    Generación automática de reportes con Python, consolidación de datos y exportación a Excel.
+                </p>
+
+                <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">Python</span>
+                    <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">SQL</span>
+                    <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">Excel</span>
+                </div>
+                </div>
+            </article>
+            </a>
+
+            <article class="group rounded-3xl overflow-hidden bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:-translate-y-1 hover:border-blue-400/50 transition duration-300">
               <div class="h-40 bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-4xl font-bold">02</div>
               <div class="p-6">
-                <h4 class="text-xl font-bold text-white" data-es="Dashboards ejecutivos" data-en="Executive dashboards">Dashboards ejecutivos</h4>
-                <p class="mt-3 text-slate-400 leading-relaxed"
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white" data-es="Dashboards ejecutivos" data-en="Executive dashboards">Dashboards ejecutivos</h4>
+                <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed"
                    data-es="Construcción de tableros interactivos para indicadores, seguimiento y análisis comparativo."
                    data-en="Development of interactive dashboards for indicators, monitoring, and comparative analysis.">
                   Construcción de tableros interactivos para indicadores, seguimiento y análisis comparativo.
                 </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">Power BI</span>
+                  <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">DAX</span> 
+                  <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">SQL</span>
+                </div>
               </div>
             </article>
 
-            <article class="group rounded-3xl bg-slate-900 border border-slate-800 overflow-hidden hover:-translate-y-1 hover:border-blue-400/40 transition duration-300">
-              <div class="h-40 bg-gradient-to-br from-slate-800 to-blue-950 flex items-center justify-center text-blue-300 text-4xl font-bold">03</div>
+            <article class="group rounded-3xl overflow-hidden bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:-translate-y-1 hover:border-blue-400/50 transition duration-300">
+              <div class="h-40 bg-gradient-to-br from-slate-700 to-blue-950 flex items-center justify-center text-blue-200 text-4xl font-bold">03</div>
               <div class="p-6">
-                <h4 class="text-xl font-bold text-white" data-es="OCR y extracción de datos" data-en="OCR and data extraction">OCR y extracción de datos</h4>
-                <p class="mt-3 text-slate-400 leading-relaxed"
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white" data-es="OCR y extracción de datos" data-en="OCR and data extraction">OCR y extracción de datos</h4>
+                <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed"
                    data-es="Herramientas para capturar texto desde imágenes o documentos y estructurarlo para análisis."
                    data-en="Tools to capture text from images or documents and structure it for analysis.">
                   Herramientas para capturar texto desde imágenes o documentos y estructurarlo para análisis.
                 </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">OCR</span>
+                  <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">OpenCV</span>
+                  <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">Python</span>
+                </div>
               </div>
             </article>
+
+
+            <article class="group rounded-3xl overflow-hidden bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:-translate-y-1 hover:border-blue-400/50 transition duration-300">
+              <div class="h-40 bg-gradient-to-br from-blue-700 to-slate-900 flex items-center justify-center text-blue-200 text-4xl font-bold">04</div>
+              <div class="p-6">
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white" data-es="Sistemas para Registro de Datos" data-en="Report automation">Automatización de reportes</h4>
+                <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed"
+                   data-es="Sistemas con autenticación de usuarios, vistas por usuarios, CRUD de datos, reportes y dashboard."
+                   data-en="Automatic report generation with Python, data consolidation, and Excel export.">
+                  Falta el inglés
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">Oracle APEX</span>
+                  <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">SQL</span>
+                  <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">HTML / CSS</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="group rounded-3xl overflow-hidden bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:-translate-y-1 hover:border-blue-400/50 transition duration-300">
+              <div class="h-40 bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-4xl font-bold">05</div>
+              <div class="p-6">
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white" data-es="Redes Neuronales Convolucionales" data-en="Executive dashboards">Dashboards ejecutivos</h4>
+                <p class="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed"
+                   data-es="Detección de vehículos con modelo de Machine Learning para estimación de la velocidad."
+                   data-en="Development of interactive dashboards for indicators, monitoring, and comparative analysis.">
+                  Construcción de tableros interactivos para indicadores, seguimiento y análisis comparativo.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">Python</span>
+                  <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">Google Colab</span>
+                  <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">Roboflow</span>
+                  <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">Ultralytics</span>
+                  <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">Tensorboard</span>
+                </div>
+              </div>
+            </article>
+
           </div>
         </section>
 
-        <!-- Habilidades -->
-        <section id="habilidades" class="grid lg:grid-cols-2 gap-6">
-          <div class="rounded-[2rem] bg-slate-950 border border-slate-800 p-8 shadow-xl">
-            <p class="text-blue-300 text-sm uppercase tracking-[0.25em] mb-3" data-es="Tecnologías" data-en="Technologies">Tecnologías</p>
-            <h3 class="text-3xl font-bold text-white mb-6" data-es="Stack" data-en="Stack">Stack</h3>
+        <!-- Skills -->
+        <section id="habilidades" class="fade-up grid lg:grid-cols-2 gap-6">
+          <div class="rounded-[2rem] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-8 shadow-xl transition-colors duration-500">
+            <p class="text-blue-600 dark:text-blue-300 text-sm uppercase tracking-[0.25em] mb-3" data-es="Tecnologías" data-en="Technologies">Tecnologías</p>
+            <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-6" data-es="Stack" data-en="Stack">Stack</h3>
             <div class="flex flex-wrap gap-3">
-              <span class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-200">Python</span>
-              <span class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-200">SQL</span>
-              <span class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-200">Power BI</span>
-              <span class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-200">Oracle</span>
-              <span class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-200">Excel</span>
-              <span class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-200">Git</span>
-              <span class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-200">Streamlit</span>
-              <span class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-200">OpenCV</span>
+              <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">Python</span>
+              <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">SQL</span>
+              <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">Power BI</span>
+              <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">Oracle</span>
+              <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">Excel</span>
+              <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">Git</span>
+              <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">Streamlit</span>
+              <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">OpenCV</span>
             </div>
           </div>
 
-          <div class="rounded-[2rem] bg-slate-950 border border-slate-800 p-8 shadow-xl">
-            <p class="text-blue-300 text-sm uppercase tracking-[0.25em] mb-3" data-es="Fortalezas" data-en="Strengths">Fortalezas</p>
-            <h3 class="text-3xl font-bold text-white mb-6" data-es="Áreas" data-en="Areas">Áreas</h3>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="rounded-2xl bg-slate-900 p-4 border border-slate-800"><p class="text-white font-semibold" data-es="Análisis de datos" data-en="Data analysis">Análisis de datos</p></div>
-              <div class="rounded-2xl bg-slate-900 p-4 border border-slate-800"><p class="text-white font-semibold">BI</p></div>
-              <div class="rounded-2xl bg-slate-900 p-4 border border-slate-800"><p class="text-white font-semibold" data-es="Automatización" data-en="Automation">Automatización</p></div>
-              <div class="rounded-2xl bg-slate-900 p-4 border border-slate-800"><p class="text-white font-semibold" data-es="Estadística" data-en="Statistics">Estadística</p></div>
-              <div class="rounded-2xl bg-slate-900 p-4 border border-slate-800"><p class="text-white font-semibold" data-es="Dashboards" data-en="Dashboards">Dashboards</p></div>
-              <div class="rounded-2xl bg-slate-900 p-4 border border-slate-800"><p class="text-white font-semibold">OCR</p></div>
+          <div class="rounded-[2rem] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-8 shadow-xl transition-colors duration-500">
+            <p class="text-blue-600 dark:text-blue-300 text-sm uppercase tracking-[0.25em] mb-3" data-es="Nivel" data-en="Level">Nivel</p>
+            <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-6" data-es="Fortalezas técnicas" data-en="Technical strengths">Fortalezas técnicas</h3>
+
+            <div class="space-y-5">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-slate-700 dark:text-slate-200 font-medium">Python</span>
+                  <span class="text-sm text-slate-500 dark:text-slate-400">90%</span>
+                </div>
+                <div class="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                  <div class="h-full w-[90%] bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-slate-700 dark:text-slate-200 font-medium">SQL</span>
+                  <span class="text-sm text-slate-500 dark:text-slate-400">88%</span>
+                </div>
+                <div class="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                  <div class="h-full w-[88%] bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-slate-700 dark:text-slate-200 font-medium">Knime</span>
+                  <span class="text-sm text-slate-500 dark:text-slate-400">80%</span>
+                </div>
+                <div class="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                  <div class="h-full w-[80%] bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-slate-700 dark:text-slate-200 font-medium">Power BI</span>
+                  <span class="text-sm text-slate-500 dark:text-slate-400">85%</span>
+                </div>
+                <div class="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                  <div class="h-full w-[85%] bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-slate-700 dark:text-slate-200 font-medium">Latex</span>
+                  <span class="text-sm text-slate-500 dark:text-slate-400">90%</span>
+                </div>
+                <div class="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                  <div class="h-full w-[90%] bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-slate-700 dark:text-slate-200 font-medium">HTML / CSS</span>
+                  <span class="text-sm text-slate-500 dark:text-slate-400">87%</span>
+                </div>
+                <div class="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                  <div class="h-full w-[87%] bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></div>
+                </div>
+              </div>
+ 
             </div>
           </div>
         </section>
 
-        <!-- Educación -->
-        <section id="educacion" class="rounded-[2rem] bg-slate-950 border border-slate-800 p-8 shadow-xl">
-          <p class="text-blue-300 text-sm uppercase tracking-[0.25em] mb-3" data-es="Formación" data-en="Education">Formación</p>
-          <h3 class="text-3xl font-bold text-white mb-8" data-es="Educación" data-en="Education">Educación</h3>
+        <!-- Education -->
+        <section id="educacion" class="fade-up rounded-[2rem] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-8 shadow-xl transition-colors duration-500">
+          <p class="text-blue-600 dark:text-blue-300 text-sm uppercase tracking-[0.25em] mb-3" data-es="Formación" data-en="Education">Formación</p>
+          <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-8" data-es="Educación" data-en="Education">Educación</h3>
 
           <div class="grid md:grid-cols-2 gap-6">
-            <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6">
-              <p class="text-blue-400 text-sm mb-2" data-es="Actualidad" data-en="Current">Actualidad</p>
-              <h4 class="text-xl font-bold text-white" data-es="Maestría en Matemática Estadística" data-en="Master's Degree in Statistical Mathematics">
-                Maestría en Matemática Estadística
+            <div class="rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 hover:border-blue-400/50 transition">
+              <p class="text-blue-600 dark:text-blue-400 text-sm mb-2" data-es="Actualidad" data-en="Current">Actualidad</p>
+              <h4 class="text-xl font-bold text-slate-900 dark:text-white" data-es="Maestría en Matemática Estadística" data-en="Master's Degree in Statistical Mathematics">
+                 <a href="https://mm.unah.edu.hn/"
+                    target="_blank"
+                    class="hover:text-blue-600 dark:hover:text-blue-400 transition underline-offset-4 hover:underline"
+                    data-es="Maestría en Matemática Estadística"
+                    data-en="Master's Degree in Statistical Mathematics">
+                    
+                    Maestría en Matemática Estadística
+                    </a>
               </h4>
-              <p class="mt-2 text-slate-400" data-es="Universidad Nacional Autónoma de Honduras" data-en="National Autonomous University of Honduras">
+              <p class="mt-2 text-slate-500 dark:text-slate-400" data-es="Universidad Nacional Autónoma de Honduras" data-en="National Autonomous University of Honduras">
                 Universidad Nacional Autónoma de Honduras
               </p>
             </div>
 
-            <div class="rounded-3xl bg-slate-900 border border-slate-800 p-6">
-              <p class="text-blue-400 text-sm mb-2" data-es="Finalizada" data-en="Completed">Finalizada</p>
-              <h4 class="text-xl font-bold text-white" data-es="Licenciatura en Matemática con orientación en Informática" data-en="Bachelor's Degree in Mathematics with specialization in Informatics">
+            <div class="rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 hover:border-blue-400/50 transition">
+              <p class="text-blue-600 dark:text-blue-400 text-sm mb-2" data-es="Finalizada" data-en="Completed">Finalizada</p>
+              <h4 class="text-xl font-bold text-slate-900 dark:text-white" data-es="Licenciatura en Matemática con orientación en Informática" data-en="Bachelor's Degree in Mathematics with specialization in Informatics">
                 Licenciatura en Matemática con orientación en Informática
               </h4>
-              <p class="mt-2 text-slate-400" data-es="Universidad Nacional Autónoma de Honduras" data-en="National Autonomous University of Honduras">
+              <p class="mt-2 text-slate-500 dark:text-slate-400" data-es="Universidad Nacional Autónoma de Honduras" data-en="National Autonomous University of Honduras">
                 Universidad Nacional Autónoma de Honduras
               </p>
             </div>
           </div>
         </section>
 
-        <!-- Contacto -->
-        <section id="contacto" class="rounded-[2rem] bg-gradient-to-r from-blue-500 to-blue-800 text-white p-8 md:p-10 shadow-2xl">
-          <p class="text-sm uppercase tracking-[0.25em] font-semibold mb-3 text-blue-100" data-es="Conexión" data-en="Connect">Conexión</p>
-          <h3 class="text-3xl md:text-4xl font-extrabold mb-4" data-es="Hablemos" data-en="Let's connect">Hablemos</h3>
-          <p class="max-w-2xl text-base md:text-lg font-medium"
-             data-es="Puedes colocar aquí tus enlaces reales para que cualquier reclutador o persona interesada entre directamente a contactarte o revisar tu trabajo."
-             data-en="You can place your real links here so any recruiter or interested person can contact you directly or review your work.">
-            Puedes colocar aquí tus enlaces reales para que cualquier reclutador o persona interesada entre directamente a contactarte o revisar tu trabajo.
-          </p>
+        <!-- Contact -->
+        <section id="contacto"
+            class="rounded-[2rem] bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 md:p-10 shadow-2xl">
 
-          <div class="mt-8 grid md:grid-cols-3 gap-4">
-            <a href="#" class="rounded-2xl bg-slate-950 text-white p-5 hover:scale-[1.02] transition block">
-              <p class="text-sm text-blue-300">Email</p>
-              <p class="mt-1 font-semibold">tucorreo@ejemplo.com</p>
-            </a>
+            <div class="grid lg:grid-cols-3 gap-8 items-center">
 
-            <a href="#" class="rounded-2xl bg-slate-950 text-white p-5 hover:scale-[1.02] transition block">
-              <p class="text-sm text-blue-300">LinkedIn</p>
-              <p class="mt-1 font-semibold">linkedin.com/in/tuusuario</p>
-            </a>
+                <!-- 🟦 FOTO (izquierda) -->
+                <div class="flex justify-center lg:justify-start">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-blue-400/20 blur-2xl rounded-3xl"></div>
 
-            <a href="#" class="rounded-2xl bg-slate-950 text-white p-5 hover:scale-[1.02] transition block">
-              <p class="text-sm text-blue-300">GitHub</p>
-              <p class="mt-1 font-semibold">github.com/tuusuario</p>
-            </a>
-          </div>
-        </section>
+                    <div class="relative w-48 h-60 md:w-56 md:h-72 rounded-3xl overflow-hidden border border-blue-300/30 shadow-xl">
+                    <img
+                        src="E:\Eu\Trabajos UNAH\Curriculum\CV WEB\fotos\contact.png"
+                        alt="Ruth Moreno"
+                        class="w-full h-full object-cover"
+                    />
+                    </div>
+                </div>
+                </div>
 
-        <footer class="text-center text-slate-500 text-sm py-4">
-          © 2026 Eunice Moreno · CV Web
+                <!-- 🟦 CONTENIDO (derecha) -->
+                <div class="lg:col-span-2">
+
+                <p class="text-sm uppercase tracking-[0.25em] font-semibold mb-3 text-blue-100"
+                    data-es="Conexión" data-en="Connect">
+                    Conexión
+                </p>
+
+                <h3 class="text-3xl md:text-4xl font-extrabold mb-3"
+                    data-es="Contacto" data-en="Contact">
+                    Contacto
+                </h3>
+
+                <p class="text-base md:text-lg font-medium mb-6"
+                    data-es="Puedes contactarme vía"
+                    data-en="You can reach me via">
+                    Puedes contactarme vía
+                </p>
+
+                <!-- Cards -->
+                <div class="grid md:grid-cols-3 gap-4">
+
+                    <div class="rounded-2xl bg-slate-950/90 p-5 hover:scale-[1.02] transition">
+                    <p class="text-sm text-blue-300">Email</p>
+                    <p class="mt-1 font-semibold">eumoreno29@gmail.com</p>
+                    </div>
+
+                    <div class="rounded-2xl bg-slate-950/90 p-5 hover:scale-[1.02] transition">
+                    <p class="text-sm text-blue-300">Cel</p>
+                    <p class="mt-1 font-semibold">+504 9639-0430</p>
+                    </div>
+
+                    <div class="rounded-2xl bg-slate-950/90 p-5 hover:scale-[1.02] transition">
+                    <p class="text-sm text-blue-300">GitHub</p>
+                    <p class="mt-1 font-semibold">github.com/tuusuario</p>
+                    </div>
+
+                </div>
+                </div>
+
+            </div>
+            </section>
+
+        <footer class="text-center text-slate-500 dark:text-slate-500 text-sm py-4">
+          © 2026 Ruth Moreno · CV
         </footer>
       </div>
     </main>
   </div>
 
   <script>
-    let currentLang = "es";
+    let currentLang = localStorage.getItem("lang") || "es";
 
     function updateLanguage(lang) {
       currentLang = lang;
       document.documentElement.lang = lang;
+      localStorage.setItem("lang", lang);
 
       document.querySelectorAll("[data-es]").forEach(el => {
         const text = el.getAttribute(`data-${lang}`);
@@ -369,24 +685,78 @@
       const mobileBtn = document.getElementById("langToggleMobile");
 
       if (lang === "en") {
-        knob.classList.add("translate-x-7");
-        mobileBtn.textContent = "EN";
+        knob.classList.add("translate-x-4");
+        if (mobileBtn) mobileBtn.textContent = "EN";
       } else {
-        knob.classList.remove("translate-x-7");
-        mobileBtn.textContent = "ES";
+        knob.classList.remove("translate-x-4");
+        if (mobileBtn) mobileBtn.textContent = "ES";
       }
     }
 
-    document.getElementById("langToggle").addEventListener("click", () => {
-      updateLanguage(currentLang === "es" ? "en" : "es");
-    });
+    const langToggle = document.getElementById("langToggle");
+    const langToggleMobile = document.getElementById("langToggleMobile");
 
-    document.getElementById("langToggleMobile").addEventListener("click", () => {
-      updateLanguage(currentLang === "es" ? "en" : "es");
-    });
+    if (langToggle) {
+      langToggle.addEventListener("click", () => {
+        updateLanguage(currentLang === "es" ? "en" : "es");
+      });
+    }
 
-    updateLanguage("es");
+    if (langToggleMobile) {
+      langToggleMobile.addEventListener("click", () => {
+        updateLanguage(currentLang === "es" ? "en" : "es");
+      });
+    }
+
+    function applyTheme(theme) {
+      const html = document.documentElement;
+      const themeKnob = document.getElementById("themeKnob");
+      const mobileThemeBtn = document.getElementById("themeToggleMobile");
+
+      if (theme === "light") {
+        html.classList.remove("dark");
+        if (themeKnob) themeKnob.classList.add("translate-x-4");
+        if (mobileThemeBtn) mobileThemeBtn.textContent = "☀";
+      } else {
+        html.classList.add("dark");
+        if (themeKnob) themeKnob.classList.remove("translate-x-4");
+        if (mobileThemeBtn) mobileThemeBtn.textContent = "☾";
+      }
+
+      localStorage.setItem("theme", theme);
+    }
+
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    applyTheme(savedTheme);
+
+    const themeToggle = document.getElementById("themeToggle");
+    const themeToggleMobile = document.getElementById("themeToggleMobile");
+
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.contains("dark");
+        applyTheme(isDark ? "light" : "dark");
+      });
+    }
+
+    if (themeToggleMobile) {
+      themeToggleMobile.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.contains("dark");
+        applyTheme(isDark ? "light" : "dark");
+      });
+    }
+
+    updateLanguage(currentLang);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
   </script>
-
 </body>
 </html>
