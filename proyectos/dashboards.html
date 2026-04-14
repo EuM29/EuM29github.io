@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyectos | Dashboards ejecutivos</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class"
+    };
+
+    
+  </script>
+
+  <style>
+    .glass {
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .kpi-glow {
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .kpi-glow:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(59, 130, 246, 0.18);
+    }
+
+    .mini-bar {
+      transition: height 0.8s ease, transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .mini-bar:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.08);
+    }
+
+    .filter-chip {
+      transition: all 0.25s ease;
+    }
+
+    .filter-chip:hover {
+      transform: translateY(-2px);
+    }
+
+    .filter-chip.active-filter {
+      background: linear-gradient(to right, rgb(37 99 235), rgb(29 78 216));
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.28);
+    }
+
+    .view-btn.active-view {
+      background: linear-gradient(to right, rgb(37 99 235), rgb(29 78 216));
+      color: white;
+      border-color: transparent;
+    }
+
+    .chart-bar {
+      width: 100%;
+      border-radius: 0.75rem 0.75rem 0 0;
+      transition: height 0.8s ease;
+    }
+
+    .progress-fill {
+      transition: width 0.8s ease;
+    }
+
+    .pulse-soft {
+      animation: pulseSoft 2.6s infinite;
+    }
+
+    @keyframes pulseSoft {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.72; }
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(59, 130, 246, 0.35);
+      border-radius: 9999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(59, 130, 246, 0.6);
+    }
+
+    @keyframes yearFlow {
+    0% {
+        transform: translateX(-120%);
+    }
+    100% {
+        transform: translateX(220%);
+    }
+    }
+
+    .animate-year-flow {
+    animation: yearFlow 2s linear infinite;
+    }
+
+    .wave {
+    position: absolute;
+    top: -10px;
+    left: -50%;
+    width: 200%;
+    height: 20px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 40%;
+    animation: waveMove 2s linear infinite;
+    }
+
+    @keyframes waveMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50%); }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100 selection:bg-blue-400 selection:text-slate-950 transition-colors duration-500">
+
+  <div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside class="hidden md:flex fixed top-0 left-0 h-screen w-72 flex-col justify-between border-r border-slate-200/70 bg-white/80 dark:bg-slate-950/85 dark:border-blue-400/15 glass p-6 z-40 transition-colors duration-500">
+      <div>
+        <div class="mb-10">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-800 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-blue-900/30">
+            R
+          </div>
+          <h1 class="mt-4 text-2xl font-bold text-slate-900 dark:text-white">Ruth Moreno</h1>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1"
+             data-es="Datos · BI · Estadística · Automatización"
+             data-en="Data · BI · Statistics · Automation">
+            Datos · BI · Estadística · Automatización
+          </p>
+        </div>
+
+        <nav class="space-y-2">
+          <a href="../index.html#inicio" class="group flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-blue-500 hover:text-white transition">
+            <span>⌂</span>
+            <span data-es="Inicio" data-en="Home">Inicio</span>
+          </a>
+
+          <a href="../index.html#perfil" class="group flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-blue-500 hover:text-white transition">
+            <span>○</span>
+            <span data-es="Perfil" data-en="Profile">Perfil</span>
+          </a>
+
+          <a href="../index.html#experiencia" class="group flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-blue-500 hover:text-white transition">
+            <span>◔</span>
+            <span data-es="Experiencia" data-en="Experience">Experiencia</span>
+          </a>
+
+          <a href="../index.html#proyectos" class="group flex items-center gap-3 px-4 py-3 rounded-xl bg-blue-600 text-white font-medium shadow-md shadow-blue-900/20">
+            <span>▣</span>
+            <span data-es="Proyectos" data-en="Projects">Proyectos</span>
+          </a>
+
+          <a href="../index.html#habilidades" class="group flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-blue-500 hover:text-white transition">
+            <span>△</span>
+            <span data-es="Habilidades" data-en="Skills">Habilidades</span>
+          </a>
+
+          <a href="../index.html#educacion" class="group flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-blue-500 hover:text-white transition">
+            <span>□</span>
+            <span data-es="Educación" data-en="Education">Educación</span>
+          </a>
+
+          <a href="../index.html#contacto" class="group flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-300 hover:bg-blue-500 hover:text-white transition">
+            <span>✉</span>
+            <span data-es="Contacto" data-en="Contact">Contacto</span>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="w-full md:ml-72">
+      <div class="md:hidden sticky top-0 z-50 border-b border-slate-200 dark:border-blue-400/15 bg-white/85 dark:bg-slate-950/90 glass px-4 py-4 transition-colors duration-500">
+        <div class="flex items-center justify-between gap-3">
+          <div>
+            <h1 class="text-lg font-bold text-slate-900 dark:text-white">Ruth Moreno</h1>
+            <p class="text-xs text-slate-500 dark:text-slate-400"
+               data-es="Detalle del proyecto"
+               data-en="Project details">
+              Detalle del proyecto
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button id="langToggleMobile" class="px-3 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-blue-400/20 text-sm text-slate-700 dark:text-slate-200 transition">
+              ES
+            </button>
+            <button id="themeToggleMobile" class="px-3 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-blue-400/20 text-sm text-slate-700 dark:text-slate-200 transition">
+              ☾
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 md:p-10 space-y-8">
+
+        <!-- Controls -->
+        <div class="grid grid-cols-2 gap-3 w-full max-w-sm ml-auto fade-up">
+          <div class="rounded-xl border border-slate-200 dark:border-blue-400/20 bg-white/80 dark:bg-slate-900 p-3 transition-colors duration-500">
+            <p class="text-[10px] uppercase tracking-[0.25em] text-blue-600 dark:text-blue-300 mb-2"
+               data-es="Idioma"
+               data-en="Language">
+              Idioma
+            </p>
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-xs text-slate-600 dark:text-slate-300">ES</span>
+              <button id="langToggle"
+                class="relative w-10 h-6 rounded-full bg-slate-200 dark:bg-slate-700 border border-slate-300 dark:border-blue-400/20 transition shrink-0">
+                <span id="langKnob"
+                  class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-gradient-to-br from-blue-500 to-blue-800 transition-all duration-300 shadow-md"></span>
+              </button>
+              <span class="text-xs text-slate-600 dark:text-slate-300">EN</span>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 dark:border-blue-400/20 bg-white/80 dark:bg-slate-900 p-3 transition-colors duration-500">
+            <p class="text-[10px] uppercase tracking-[0.25em] text-blue-600 dark:text-blue-300 mb-2"
+               data-es="Tema"
+               data-en="Theme">
+              Tema
+            </p>
+            <div class="flex items-center justify-between gap-1">
+              <span class="text-xs text-slate-600 dark:text-slate-300">☾</span>
+              <button id="themeToggle"
+                class="relative w-10 h-6 rounded-full bg-slate-200 dark:bg-slate-700 border border-slate-300 dark:border-blue-400/20 transition shrink-0">
+                <span id="themeKnob"
+                  class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-gradient-to-br from-blue-500 to-blue-800 transition-all duration-300 shadow-md"></span>
+              </button>
+              <span class="text-xs text-slate-600 dark:text-slate-300">☀</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Header -->
+        <section class="fade-up rounded-[2rem] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-8 shadow-xl transition-colors duration-500">
+          <a href="../index.html#proyectos"
+             class="text-blue-600 dark:text-blue-400 hover:underline"
+             data-es="← Volver a proyectos"
+             data-en="← Back to projects">
+            ← Volver a proyectos
+          </a>
+
+          <p class="mt-6 uppercase tracking-[0.3em] text-xs text-blue-600 dark:text-blue-300"
+             data-es="Proyecto"
+             data-en="Project">
+            Proyecto
+          </p>
+
+          <h1 class="mt-3 text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white"
+              data-es="Dashboards ejecutivos"
+              data-en="Executive dashboards">
+            Dashboards ejecutivos
+          </h1>
+
+          <p class="mt-4 text-slate-600 dark:text-slate-300 leading-relaxed text-base md:text-lg"
+             data-es="Diseño y desarrollo de dashboards interactivos orientados a la visualización de indicadores clave, análisis comparativo, monitoreo de desempeño y apoyo a la toma de decisiones mediante una presentación clara, dinámica y ejecutiva de la información."
+             data-en="Design and development of interactive dashboards focused on visualizing key indicators, comparative analysis, performance monitoring, and decision-making support through a clear, dynamic, and executive presentation of information.">
+            Diseño y desarrollo de dashboards interactivos orientados a la visualización de indicadores clave, análisis comparativo, monitoreo de desempeño y apoyo a la toma de decisiones mediante una presentación clara, dinámica y ejecutiva de la información.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">Power BI</span>
+            <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">DAX</span>
+            <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">SQL</span>
+            <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">KPIs</span>
+            <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300">Visualización</span>
+          </div>
+        </section>
+
+        <!-- Interactive dashboard -->
+        <section class="fade-up rounded-[2rem] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-8 shadow-xl transition-colors duration-500 space-y-6">
+
+          <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4">
+            <div>
+              <h2 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white"
+                  data-es="Dashboards ejecutivos interactivos "
+                  data-en="Interactive executive dashboards">
+                Dashboard ejecutivo interactivo
+              </h2>
+
+              <p class="mt-2 text-slate-600 dark:text-slate-300"
+                data-es="Transformar datos en información clara, dinámica y útil para la toma de decisiones."
+                data-en="Transform data into clear, dynamic, and useful information for decision-making.">
+                Transformar datos en información clara, dinámica y útil para la toma de decisiones.
+                </p>
+            </div>
+
+            
+
+            <div class="flex flex-wrap gap-2">
+              <button class="view-btn active-view px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-800 text-sm"
+                      data-view="executive"
+                      data-es="Vista ejecutiva"
+                      data-en="Executive view">
+                Vista ejecutiva
+              </button>
+              <button class="view-btn px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm text-slate-700 dark:text-slate-300"
+                      data-view="operational"
+                      data-es="Vista operativa"
+                      data-en="Operational view">
+                Vista operativa
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-6">
+  <div class="flex items-center justify-between gap-3 mb-2">
+    <div>
+      <p class="text-sm font-semibold text-slate-800 dark:text-white"
+         data-es="Avance del año"
+         data-en="Year progress">
+        Avance del año
+      </p>
+      <p class="text-xs text-slate-500 dark:text-blue-100/80"
+         data-es="Porcentaje transcurrido del año actual"
+         data-en="Percentage elapsed in the current year">
+        Porcentaje transcurrido del año actual
+      </p>
+    </div>
+
+    <span id="yearProgressText" class="text-sm font-semibold text-slate-700 dark:text-white/90">28%</span>
+  </div>
+
+  <div class="relative w-full h-2 rounded-full bg-slate-300/70 dark:bg-white/10 overflow-visible">
+    
+    <!-- animación -->
+    <div class="absolute inset-0 overflow-hidden rounded-full">
+      <div class="h-full w-[40%] bg-gradient-to-r from-transparent via-white/50 dark:via-white/40 to-transparent animate-year-flow"></div>
+    </div>
+
+    <!-- barra progreso -->
+    <div id="yearProgressBar"
+         class="relative h-full rounded-full bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-200 dark:from-cyan-200/80 dark:via-white dark:to-blue-100/90 shadow-[0_0_10px_rgba(255,255,255,0.25)] dark:shadow-[0_0_10px_rgba(255,255,255,0.25)] transition-all duration-1000"
+         style="width: 28%;">
+    </div>
+
+    <!-- marcador -->
+    <div id="yearMarker"
+         class="absolute top-[-18px] flex flex-col items-center transition-all duration-1000"
+         style="left: 28%; transform: translateX(-50%);">
+
+      <div class="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-l-transparent border-r-transparent border-t-slate-700 dark:border-t-white drop-shadow"></div>
+
+      <span id="yearMarkerDate"
+            class="mt-1 text-[10px] px-2 py-0.5 rounded-md bg-white text-slate-800 dark:bg-white/90 dark:text-slate-800 font-semibold shadow-md border border-slate-200 dark:border-white/20">
+        1 Abr
+      </span>
+    </div>
+  </div>
+
+  <div class="mt-2 flex items-center justify-between text-[11px] text-slate-500 dark:text-blue-100/70">
+    <span data-es="Ene" data-en="Jan">Ene</span>
+    <span data-es="Hoy" data-en="Today">Hoy</span>
+    <span data-es="Dic" data-en="Dec">Dic</span>
+  </div>
+</div>
+
+          <!-- Filters -->
+          <div class="grid lg:grid-cols-3 gap-4">
+            <div class="rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5">
+              <p class="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 mb-3"
+                 data-es="Período"
+                 data-en="Period">
+                Período
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <button class="filter-chip active-filter px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-800 text-sm"
+                        data-period="2026">
+                  2026
+                </button>
+                <button class="filter-chip px-3 py-2 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm"
+                        data-period="2025">
+                  2025
+                </button>
+              </div>
+            </div>
+
+            <div class="rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5">
+              <p class="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 mb-3"
+                 data-es="Enfoque"
+                 data-en="Focus">
+                Enfoque
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <button class="filter-chip active-filter px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-800 text-sm"
+                        data-focus="global"
+                        data-es="Global"
+                        data-en="Global">
+                  Global
+                </button>
+                <button class="filter-chip px-3 py-2 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm"
+                        data-focus="finance"
+                        data-es="Finanzas"
+                        data-en="Finance">
+                  Finanzas
+                </button>
+                <button class="filter-chip px-3 py-2 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm"
+                        data-focus="operations"
+                        data-es="Operaciones"
+                        data-en="Operations">
+                  Operaciones
+                </button>
+              </div>
+            </div>
+
+            <div class="rounded-3xl bg-gradient-to-r from-blue-600 to-blue-800 text-white p-5">
+              <p class="text-xs uppercase tracking-[0.2em] text-blue-100 mb-3"
+                 data-es="Estado"
+                 data-en="Status">
+                Estado
+              </p>
+              <div class="flex items-center justify-between gap-3">
+                <div>
+                  <p class="font-semibold pulse-soft"
+                     data-es="Actualización dinámica"
+                     data-en="Dynamic update">
+                    Actualización dinámica
+                  </p>
+                  <p class="text-sm text-blue-50"
+                     data-es="Los indicadores cambian según los filtros"
+                     data-en="Indicators change according to filters">
+                    Los indicadores cambian según los filtros
+                  </p>
+                </div>
+                <div class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_rgba(52,211,153,0.7)]"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPIs -->
+          <div class="grid grid-cols-2 xl:grid-cols-4 gap-4">
+            <div class="kpi-glow rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5">
+              <p class="text-sm text-slate-500 dark:text-slate-400" id="kpi1Label"
+                 data-es="Indicadores monitoreados"
+                 data-en="Monitored indicators">
+                Indicadores monitoreados
+              </p>
+              <p class="mt-2 text-3xl font-bold text-blue-500" id="kpi1Value">24</p>
+              <p class="mt-1 text-xs text-green-500" id="kpi1Sub">+6 agregados</p>
+            </div>
+
+            <div class="kpi-glow rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5">
+              <p class="text-sm text-slate-500 dark:text-slate-400" id="kpi2Label"
+                 data-es="Áreas analizadas"
+                 data-en="Analyzed areas">
+                Áreas analizadas
+              </p>
+              <p class="mt-2 text-3xl font-bold text-blue-500" id="kpi2Value">8</p>
+              <p class="mt-1 text-xs text-green-500" id="kpi2Sub">Seguimiento activo</p>
+            </div>
+
+            <div class="kpi-glow relative overflow-hidden rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 flex flex-col justify-between">
+ 
+            <div id="waterFill"
+                class="absolute bottom-0 left-0 w-full bg-blue-500/20 transition-all duration-1000"
+                style="height: 0%;">
+                
+                <div class="wave"></div>
+            </div>
+ 
+            <div class="relative z-10">
+
+                <p class="text-sm text-slate-500 dark:text-slate-400"
+                id="kpi3Label"
+                data-es="Porcentaje"
+                data-en="Percentage">
+                Porcentaje
+                </p>
+
+                <p class="mt-2 text-3xl font-bold text-blue-500"
+                id="kpi3Value">
+                92%
+                </p>
+
+                <p class="mt-1 text-xs text-green-500"
+                id="kpi3Sub">
+                Filtros y drill-down
+                </p>
+
+            </div>
+
+            </div>
+
+            <div class="kpi-glow rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5">
+              <p class="text-sm text-slate-500 dark:text-slate-400" id="kpi4Label"
+                 data-es="Alertas visibles"
+                 data-en="Visible alerts">
+                Alertas visibles
+              </p>
+              <p class="mt-2 text-3xl font-bold text-red-500" id="kpi4Value">5</p>
+              <p class="mt-1 text-xs text-red-400" id="kpi4Sub">Priorización rápida</p>
+            </div>
+          </div>
+
+          <!-- Charts -->
+          <div class="grid lg:grid-cols-2 gap-6">
+            <div class="rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6">
+              <div class="flex items-center justify-between gap-3 mb-5">
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white"
+                      data-es="Tendencia de desempeño"
+                      data-en="Performance trend">
+                    Tendencia de desempeño
+                  </h3>
+                  <p class="text-sm text-slate-500 dark:text-slate-400"
+                     data-es="Visual tipo dashboard"
+                     data-en="Dashboard-style visual">
+                    Visual tipo dashboard
+                  </p>
+                </div>
+                <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300" id="chartBadge"
+                      data-es="Mensual"
+                      data-en="Monthly">
+                  Mensual
+                </span>
+              </div>
+
+              <div class="h-44 flex items-end gap-3">
+                <div class="chart-bar bg-blue-300" data-bar="0" style="height:35%"></div>
+                <div class="chart-bar bg-blue-400" data-bar="1" style="height:52%"></div>
+                <div class="chart-bar bg-blue-400" data-bar="2" style="height:48%"></div>
+                <div class="chart-bar bg-blue-500" data-bar="3" style="height:63%"></div>
+                <div class="chart-bar bg-blue-500" data-bar="4" style="height:76%"></div>
+                <div class="chart-bar bg-blue-600" data-bar="5" style="height:70%"></div>
+                <div class="chart-bar bg-blue-700" data-bar="6" style="height:88%"></div>
+                <div class="chart-bar bg-cyan-500" data-bar="7" style="height:95%"></div>
+              </div>
+
+              <div class="mt-4 grid grid-cols-8 text-[11px] text-slate-500 dark:text-slate-400">
+                <span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span>
+                <span>May</span><span>Jun</span><span>Jul</span><span>Ago</span>
+              </div>
+            </div>
+
+            <div class="rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6">
+              <div class="flex items-center justify-between gap-3 mb-5">
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white"
+                      data-es="Distribución por categoría"
+                      data-en="Distribution by category">
+                    Distribución por categoría
+                  </h3>
+                  <p class="text-sm text-slate-500 dark:text-slate-400"
+                     data-es="Participación relativa"
+                     data-en="Relative share">
+                    Participación relativa
+                  </p>
+                </div>
+                <span class="px-3 py-1 rounded-full text-xs bg-blue-100 text-blue-700 dark:bg-slate-800 dark:text-blue-300"
+                      data-es="Actual"
+                      data-en="Current">
+                  Actual
+                </span>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <div class="flex items-center justify-between text-sm mb-1">
+                    <span class="text-slate-700 dark:text-slate-300" id="cat1Label">Operaciones</span>
+                    <span class="text-slate-500 dark:text-slate-400" id="cat1Value">42%</span>
+                  </div>
+                  <div class="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div class="progress-fill h-full bg-blue-600 rounded-full" id="cat1Bar" style="width:42%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex items-center justify-between text-sm mb-1">
+                    <span class="text-slate-700 dark:text-slate-300" id="cat2Label">Indicadores financieros</span>
+                    <span class="text-slate-500 dark:text-slate-400" id="cat2Value">31%</span>
+                  </div>
+                  <div class="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div class="progress-fill h-full bg-cyan-500 rounded-full" id="cat2Bar" style="width:31%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex items-center justify-between text-sm mb-1">
+                    <span class="text-slate-700 dark:text-slate-300" id="cat3Label">Seguimiento de metas</span>
+                    <span class="text-slate-500 dark:text-slate-400" id="cat3Value">19%</span>
+                  </div>
+                  <div class="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div class="progress-fill h-full bg-blue-400 rounded-full" id="cat3Bar" style="width:19%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex items-center justify-between text-sm mb-1">
+                    <span class="text-slate-700 dark:text-slate-300" id="cat4Label">Alertas</span>
+                    <span class="text-slate-500 dark:text-slate-400" id="cat4Value">8%</span>
+                  </div>
+                  <div class="w-full h-3 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div class="progress-fill h-full bg-red-500 rounded-full" id="cat4Bar" style="width:8%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Executive mini table -->
+<div class="grid xl:grid-cols-3 gap-6">
+  <div class="rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6">
+    
+    <div class="flex items-center justify-between gap-3 mb-4">
+      <div>
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white"
+            data-es="Vista ejecutiva resumida"
+            data-en="Executive summary view">
+          Vista ejecutiva resumida
+        </h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400"
+           data-es="Ejemplo de tabla compacta"
+           data-en="Compact table example">
+          Ejemplo de tabla compacta
+        </p>
+      </div>
+
+      <button id="downloadExecutiveData"
+        class="px-3 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition"
+        data-es="Descargar datos"
+        data-en="Download data">
+        Descargar datos
+      </button>
+    </div>
+
+    <div class="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800">
+      <table class="w-full text-sm">
+        <thead class="bg-slate-100 dark:bg-slate-950">
+          <tr class="text-left">
+            <th class="px-4 py-3 text-slate-500 dark:text-slate-400 font-semibold"
+                data-es="Área"
+                data-en="Area">
+              Área
+            </th>
+            <th class="px-4 py-3 text-slate-500 dark:text-slate-400 font-semibold"
+                data-es="KPI"
+                data-en="KPI">
+              KPI
+            </th>
+            <th class="px-4 py-3 text-slate-500 dark:text-slate-400 font-semibold"
+                data-es="Estado"
+                data-en="Status">
+              Estado
+            </th>
+          </tr>
+        </thead>
+
+        <tbody class="divide-y divide-slate-200 dark:divide-slate-800 bg-white dark:bg-slate-950">
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-900 transition">
+            <td class="px-4 py-3 text-slate-700 dark:text-slate-300"
+                data-es="Finanzas"
+                data-en="Finance">
+              Finanzas
+            </td>
+            <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white">92%</td>
+            <td class="px-4 py-3">
+              <span class="inline-flex px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300"
+                    data-es="Óptimo"
+                    data-en="Optimal">
+                Óptimo
+              </span>
+            </td>
+          </tr>
+
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-900 transition">
+            <td class="px-4 py-3 text-slate-700 dark:text-slate-300"
+                data-es="Operaciones"
+                data-en="Operations">
+              Operaciones
+            </td>
+            <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white">87%</td>
+            <td class="px-4 py-3">
+              <span class="inline-flex px-2.5 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-300"
+                    data-es="Estable"
+                    data-en="Stable">
+                Estable
+              </span>
+            </td>
+          </tr>
+
+          <tr class="hover:bg-slate-50 dark:hover:bg-slate-900 transition">
+            <td class="px-4 py-3 text-slate-700 dark:text-slate-300"
+                data-es="Seguimiento"
+                data-en="Tracking">
+              Seguimiento
+            </td>
+            <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white">74%</td>
+            <td class="px-4 py-3">
+              <span class="inline-flex px-2.5 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-700 dark:bg-amber-500/10 dark:text-amber-300"
+                    data-es="Atención"
+                    data-en="Attention">
+                Atención
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="mt-4 text-xs text-slate-500 dark:text-slate-400"
+       data-es="Este tipo de tabla permite resumir indicadores clave en una vista breve, clara y ejecutiva."
+       data-en="This type of table summarizes key indicators in a brief, clear, and executive-friendly view.">
+      Este tipo de tabla permite resumir indicadores clave en una vista breve, clara y ejecutiva.
+    </p>
+
+  </div>
+
+  <div class="xl:col-span-2 rounded-3xl bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6">
+    <h3 class="text-xl font-bold"
+        data-es="Aspectos clave que siempre incorporo en mis dashboards"
+        data-en="Key aspects I always include in my dashboards">
+      Aspectos clave que siempre incorporo en mis dashboards
+    </h3>
+
+    <div class="mt-5 grid md:grid-cols-2 gap-4">
+                <div class="rounded-2xl bg-slate-950/20 p-4">
+                  <p class="font-semibold" id="insight1Title">Monitoreo de indicadores</p>
+                  <p class="mt-2 text-sm text-blue-50" id="insight1Text">
+                    Permite seguir métricas clave de manera clara, rápida y centralizada.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl bg-slate-950/20 p-4">
+                  <p class="font-semibold" id="insight2Title">Análisis comparativo</p>
+                  <p class="mt-2 text-sm text-blue-50" id="insight2Text">
+                    Facilita comparar períodos, áreas o categorías para detectar variaciones.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl bg-slate-950/20 p-4">
+                  <p class="font-semibold" id="insight3Title">Detección de alertas</p>
+                  <p class="mt-2 text-sm text-blue-50" id="insight3Text">
+                    Resalta desviaciones o situaciones que requieren atención inmediata.
+                  </p>
+                </div>
+
+                <div class="rounded-2xl bg-slate-950/20 p-4">
+                  <p class="font-semibold" id="insight4Title">Apoyo a decisiones</p>
+                  <p class="mt-2 text-sm text-blue-50" id="insight4Text">
+                    Convierte datos complejos en una vista ejecutiva comprensible y accionable.
+                  </p>
+                </div>
+              </div>
+  </div>
+</div>
+
+
+
+          </div>
+        </section>
+
+        <footer class="text-center text-slate-500 dark:text-slate-500 text-sm py-4">
+          © 2026 Ruth Moreno · CV
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    let currentLang = localStorage.getItem("lang") || "es";
+
+    function updateLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      localStorage.setItem("lang", lang);
+
+      document.querySelectorAll("[data-es]").forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) el.textContent = text;
+      });
+
+      syncDynamicLanguage();
+
+      updateYearProgress();
+
+      const knob = document.getElementById("langKnob");
+      const mobileBtn = document.getElementById("langToggleMobile");
+
+      if (lang === "en") {
+        if (knob) knob.classList.add("translate-x-4");
+        if (mobileBtn) mobileBtn.textContent = "EN";
+      } else {
+        if (knob) knob.classList.remove("translate-x-4");
+        if (mobileBtn) mobileBtn.textContent = "ES";
+      }
+    }
+
+    function applyTheme(theme) {
+      const html = document.documentElement;
+      const themeKnob = document.getElementById("themeKnob");
+      const mobileThemeBtn = document.getElementById("themeToggleMobile");
+
+      if (theme === "light") {
+        html.classList.remove("dark");
+        if (themeKnob) themeKnob.classList.add("translate-x-4");
+        if (mobileThemeBtn) mobileThemeBtn.textContent = "☀";
+      } else {
+        html.classList.add("dark");
+        if (themeKnob) themeKnob.classList.remove("translate-x-4");
+        if (mobileThemeBtn) mobileThemeBtn.textContent = "☾";
+      }
+
+      localStorage.setItem("theme", theme);
+    }
+
+    const dashboardData = {
+      executive: {
+        "2026-global": {
+          kpis: ["24", "8", "92%", "5"],
+          subs: {
+            es: ["+6 agregados", "Seguimiento activo", "Filtros y drill-down", "Priorización rápida"],
+            en: ["+6 added", "Active tracking", "Filters and drill-down", "Quick prioritization"]
+          },
+          bars: [35, 52, 48, 63, 76, 70, 88, 95],
+          catLabels: {
+            es: ["Operaciones", "Indicadores financieros", "Seguimiento de metas", "Alertas"],
+            en: ["Operations", "Financial indicators", "Goal tracking", "Alerts"]
+          },
+          catValues: [42, 31, 19, 8],
+          insights: {
+            es: [
+              ["Monitoreo de indicadores", "Permite seguir métricas clave de manera clara, rápida y centralizada."],
+              ["Análisis comparativo", "Facilita comparar períodos, áreas o categorías para detectar variaciones."],
+              ["Detección de alertas", "Resalta desviaciones o situaciones que requieren atención inmediata."],
+              ["Apoyo a decisiones", "Convierte datos complejos en una vista ejecutiva comprensible y accionable."]
+            ],
+            en: [
+              ["Indicator monitoring", "Allows key metrics to be tracked clearly, quickly, and centrally."],
+              ["Comparative analysis", "Makes it easy to compare periods, areas, or categories to detect variations."],
+              ["Alert detection", "Highlights deviations or situations that require immediate attention."],
+              ["Decision support", "Turns complex data into an understandable and actionable executive view."]
+            ]
+          }
+        },
+        "2026-finance": {
+          kpis: ["18", "5", "89%", "3"],
+          subs: {
+            es: ["KPIs financieros", "Áreas presupuestarias", "Comparación histórica", "Variaciones críticas"],
+            en: ["Financial KPIs", "Budget areas", "Historical comparison", "Critical variations"]
+          },
+          bars: [30, 38, 44, 58, 64, 72, 83, 90],
+          catLabels: {
+            es: ["Ingresos", "Ejecución", "Variación anual", "Alertas"],
+            en: ["Revenue", "Execution", "Annual variation", "Alerts"]
+          },
+          catValues: [46, 28, 18, 8],
+          insights: {
+            es: [
+              ["Control financiero", "Visualiza ingresos, ejecución y variaciones en una sola vista."],
+              ["Comparación temporal", "Permite contrastar periodos para analizar crecimiento o rezago."],
+              ["Identificación de desviaciones", "Resalta diferencias relevantes frente a metas u objetivos."],
+              ["Decisión ejecutiva", "Facilita priorizar acciones con base en indicadores financieros."]
+            ],
+            en: [
+              ["Financial control", "Displays revenue, execution, and variations in one view."],
+              ["Time comparison", "Allows periods to be contrasted to analyze growth or lag."],
+              ["Deviation detection", "Highlights relevant differences against goals or targets."],
+              ["Executive decision", "Helps prioritize actions based on financial indicators."]
+            ]
+          }
+        },
+        "2026-operations": {
+          kpis: ["21", "7", "94%", "6"],
+          subs: {
+            es: ["KPIs operativos", "Procesos medidos", "Alta navegación", "Casos priorizados"],
+            en: ["Operational KPIs", "Measured processes", "High navigation", "Prioritized cases"]
+          },
+          bars: [40, 49, 57, 62, 69, 75, 84, 93],
+          catLabels: {
+            es: ["Productividad", "Seguimiento", "Cumplimiento", "Incidencias"],
+            en: ["Productivity", "Tracking", "Compliance", "Incidents"]
+          },
+          catValues: [39, 27, 24, 10],
+          insights: {
+            es: [
+              ["Monitoreo operativo", "Muestra desempeño, cumplimiento y seguimiento por área."],
+              ["Priorización", "Ayuda a ubicar procesos o unidades con mayor atención requerida."],
+              ["Control visual", "Facilita interpretar rápidamente el estado operativo."],
+              ["Respuesta oportuna", "Permite actuar con base en alertas y variaciones visibles."]
+            ],
+            en: [
+              ["Operational monitoring", "Shows performance, compliance, and tracking by area."],
+              ["Prioritization", "Helps locate processes or units requiring greater attention."],
+              ["Visual control", "Makes operational status easy to interpret quickly."],
+              ["Timely response", "Allows action based on visible alerts and variations."]
+            ]
+          }
+        },
+        "2025-global": {
+          kpis: ["20", "7", "85%", "7"],
+          subs: {
+            es: ["Base histórica", "Cobertura previa", "Interactividad sólida", "Más incidencias"],
+            en: ["Historical base", "Previous coverage", "Solid interactivity", "More incidents"]
+          },
+          bars: [28, 36, 40, 49, 57, 63, 70, 78],
+          catLabels: {
+            es: ["Operaciones", "Finanzas", "Seguimiento", "Alertas"],
+            en: ["Operations", "Finance", "Tracking", "Alerts"]
+          },
+          catValues: [38, 29, 21, 12],
+          insights: {
+            es: [
+              ["Evolución histórica", "Permite analizar la madurez del dashboard entre periodos."],
+              ["Comparabilidad", "Ayuda a visualizar cambios relevantes respecto al año actual."],
+              ["Seguimiento continuo", "Facilita mantener control sobre indicadores persistentes."],
+              ["Base para mejora", "Sirve como punto de partida para tableros más avanzados."]
+            ],
+            en: [
+              ["Historical evolution", "Allows dashboard maturity to be analyzed across periods."],
+              ["Comparability", "Helps visualize relevant changes versus the current year."],
+              ["Continuous monitoring", "Makes it easier to keep control over persistent indicators."],
+              ["Basis for improvement", "Serves as a starting point for more advanced dashboards."]
+            ]
+          }
+        }
+      },
+      operational: {
+        "2026-global": {
+          kpis: ["31", "12", "88%", "9"],
+          subs: {
+            es: ["Variables monitoreadas", "Unidades visibles", "Navegación detallada", "Casos pendientes"],
+            en: ["Monitored variables", "Visible units", "Detailed navigation", "Pending cases"]
+          },
+          bars: [45, 51, 55, 60, 68, 74, 79, 86],
+          catLabels: {
+            es: ["Carga operativa", "Casos procesados", "Cumplimiento", "Alertas"],
+            en: ["Operational load", "Processed cases", "Compliance", "Alerts"]
+          },
+          catValues: [41, 26, 22, 11],
+          insights: {
+            es: [
+              ["Detalle operativo", "Muestra más granularidad para seguimiento diario o semanal."],
+              ["Visibilidad por unidad", "Facilita revisar desempeño por segmentos específicos."],
+              ["Control de carga", "Ayuda a identificar acumulación o saturación operativa."],
+              ["Acción puntual", "Permite focalizar decisiones en problemas concretos."]
+            ],
+            en: [
+              ["Operational detail", "Shows more granularity for daily or weekly tracking."],
+              ["Visibility by unit", "Makes it easier to review performance by specific segments."],
+              ["Load control", "Helps identify accumulation or operational overload."],
+              ["Focused action", "Allows decisions to focus on concrete problems."]
+            ]
+          }
+        },
+        "2026-finance": {
+          kpis: ["22", "6", "84%", "4"],
+          subs: {
+            es: ["Variables financieras", "Segmentos revisados", "Vista técnica", "Casos detectados"],
+            en: ["Financial variables", "Reviewed segments", "Technical view", "Detected cases"]
+          },
+          bars: [34, 41, 50, 56, 61, 67, 74, 82],
+          catLabels: {
+            es: ["Presupuesto", "Ejecución", "Variaciones", "Alertas"],
+            en: ["Budget", "Execution", "Variations", "Alerts"]
+          },
+          catValues: [43, 24, 23, 10],
+          insights: {
+            es: [
+              ["Seguimiento técnico", "Permite ver más detalle en métricas financieras clave."],
+              ["Control por componente", "Ayuda a separar ejecución, variación y alertas."],
+              ["Comparación de comportamiento", "Facilita interpretar movimientos entre segmentos."],
+              ["Apoyo analítico", "Sirve como base para análisis financiero puntual."]
+            ],
+            en: [
+              ["Technical tracking", "Allows more detail to be seen in key financial metrics."],
+              ["Control by component", "Helps separate execution, variation, and alerts."],
+              ["Behavior comparison", "Makes it easier to interpret movement between segments."],
+              ["Analytical support", "Serves as a basis for focused financial analysis."]
+            ]
+          }
+        },
+        "2026-operations": {
+          kpis: ["34", "14", "91%", "8"],
+          subs: {
+            es: ["Variables operativas", "Procesos visibles", "Exploración dinámica", "Casos críticos"],
+            en: ["Operational variables", "Visible processes", "Dynamic exploration", "Critical cases"]
+          },
+          bars: [42, 47, 54, 61, 66, 73, 81, 89],
+          catLabels: {
+            es: ["Productividad", "Seguimiento", "Cumplimiento", "Incidencias"],
+            en: ["Productivity", "Tracking", "Compliance", "Incidents"]
+          },
+          catValues: [37, 25, 26, 12],
+          insights: {
+            es: [
+              ["Seguimiento granular", "Permite monitorear procesos con más detalle operativo."],
+              ["Detección temprana", "Ayuda a ubicar cuellos de botella o incidencias."],
+              ["Análisis por área", "Facilita comparar unidades o procesos específicos."],
+              ["Mejora continua", "Apoya la optimización con evidencia visual."]
+            ],
+            en: [
+              ["Granular tracking", "Allows processes to be monitored with more operational detail."],
+              ["Early detection", "Helps identify bottlenecks or incidents."],
+              ["Area analysis", "Makes it easier to compare specific units or processes."],
+              ["Continuous improvement", "Supports optimization with visual evidence."]
+            ]
+          }
+        },
+        "2025-global": {
+          kpis: ["27", "10", "80%", "10"],
+          subs: {
+            es: ["Histórico operativo", "Cobertura inicial", "Interacción funcional", "Mayor rezago"],
+            en: ["Operational history", "Initial coverage", "Functional interaction", "Higher lag"]
+          },
+          bars: [30, 35, 39, 45, 53, 60, 66, 73],
+          catLabels: {
+            es: ["Carga", "Seguimiento", "Cumplimiento", "Alertas"],
+            en: ["Load", "Tracking", "Compliance", "Alerts"]
+          },
+          catValues: [36, 27, 23, 14],
+          insights: {
+            es: [
+              ["Base comparativa", "Permite contrastar la evolución operativa respecto al presente."],
+              ["Seguimiento histórico", "Ayuda a ver comportamiento acumulado o recurrente."],
+              ["Identificación de rezagos", "Resalta áreas con menor desempeño histórico."],
+              ["Apoyo a rediseño", "Sirve para mejorar dashboards futuros."]
+            ],
+            en: [
+              ["Comparative base", "Allows operational evolution to be contrasted with the present."],
+              ["Historical monitoring", "Helps show accumulated or recurring behavior."],
+              ["Lag identification", "Highlights areas with lower historical performance."],
+              ["Redesign support", "Helps improve future dashboards."]
+            ]
+          }
+        }
+      }
+    };
+
+    let currentView = "executive";
+    let currentPeriod = "2026";
+    let currentFocus = "global";
+
+    function currentKey() {
+      return `${currentPeriod}-${currentFocus}`;
+    }
+
+    function syncDynamicLanguage() {
+      renderDashboard();
+    }
+
+    function renderDashboard() {
+      const lang = currentLang;
+      const data = dashboardData[currentView][currentKey()] || dashboardData[currentView]["2026-global"];
+
+      document.getElementById("kpi1Value").textContent = data.kpis[0];
+      document.getElementById("kpi2Value").textContent = data.kpis[1];
+      document.getElementById("kpi3Value").textContent = data.kpis[2];
+      document.getElementById("kpi4Value").textContent = data.kpis[3];
+
+      document.getElementById("kpi1Sub").textContent = data.subs[lang][0];
+      document.getElementById("kpi2Sub").textContent = data.subs[lang][1];
+      document.getElementById("kpi3Sub").textContent = data.subs[lang][2];
+      document.getElementById("kpi4Sub").textContent = data.subs[lang][3];
+
+      document.querySelectorAll("[data-bar]").forEach((bar, i) => {
+        bar.style.height = `${data.bars[i]}%`;
+      });
+
+      document.getElementById("cat1Label").textContent = data.catLabels[lang][0];
+      document.getElementById("cat2Label").textContent = data.catLabels[lang][1];
+      document.getElementById("cat3Label").textContent = data.catLabels[lang][2];
+      document.getElementById("cat4Label").textContent = data.catLabels[lang][3];
+
+      document.getElementById("cat1Value").textContent = `${data.catValues[0]}%`;
+      document.getElementById("cat2Value").textContent = `${data.catValues[1]}%`;
+      document.getElementById("cat3Value").textContent = `${data.catValues[2]}%`;
+      document.getElementById("cat4Value").textContent = `${data.catValues[3]}%`;
+
+      document.getElementById("cat1Bar").style.width = `${data.catValues[0]}%`;
+      document.getElementById("cat2Bar").style.width = `${data.catValues[1]}%`;
+      document.getElementById("cat3Bar").style.width = `${data.catValues[2]}%`;
+      document.getElementById("cat4Bar").style.width = `${data.catValues[3]}%`;
+
+      for (let i = 0; i < 4; i++) {
+        document.getElementById(`insight${i+1}Title`).textContent = data.insights[lang][i][0];
+        document.getElementById(`insight${i+1}Text`).textContent = data.insights[lang][i][1];
+      }
+    }
+
+    const water = document.getElementById("waterFill");
+    const kpi3 = document.getElementById("kpi3Value");
+
+    if (water && kpi3) {
+    const value = parseFloat(kpi3.textContent);
+    if (!isNaN(value)) {
+        water.style.height = `${value}%`;
+    }
+    }
+
+    function activateGroup(selector, activeEl, activeClass, inactiveClasses) {
+      document.querySelectorAll(selector).forEach(btn => {
+        btn.classList.remove(activeClass);
+        inactiveClasses.forEach(c => btn.classList.add(c));
+      });
+      activeEl.classList.add(activeClass);
+      inactiveClasses.forEach(c => activeEl.classList.remove(c));
+    }
+
+    document.querySelectorAll("[data-period]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        currentPeriod = btn.dataset.period;
+        activateGroup(
+          "[data-period]",
+          btn,
+          "active-filter",
+          ["bg-white", "dark:bg-slate-950", "text-slate-700", "dark:text-slate-300"]
+        );
+        renderDashboard();
+      });
+    });
+
+    document.querySelectorAll("[data-focus]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        currentFocus = btn.dataset.focus;
+        activateGroup(
+          "[data-focus]",
+          btn,
+          "active-filter",
+          ["bg-white", "dark:bg-slate-950", "text-slate-700", "dark:text-slate-300"]
+        );
+        renderDashboard();
+      });
+    });
+
+    document.querySelectorAll("[data-view]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        currentView = btn.dataset.view;
+        document.querySelectorAll("[data-view]").forEach(v => {
+          v.classList.remove("active-view");
+          v.classList.add("bg-slate-100", "dark:bg-slate-900", "text-slate-700", "dark:text-slate-300");
+        });
+        btn.classList.add("active-view");
+        btn.classList.remove("bg-slate-100", "dark:bg-slate-900", "text-slate-700", "dark:text-slate-300");
+        renderDashboard();
+      });
+    });
+
+    const langToggle = document.getElementById("langToggle");
+    const langToggleMobile = document.getElementById("langToggleMobile");
+    const themeToggle = document.getElementById("themeToggle");
+    const themeToggleMobile = document.getElementById("themeToggleMobile");
+
+    if (langToggle) {
+      langToggle.addEventListener("click", () => {
+        updateLanguage(currentLang === "es" ? "en" : "es");
+      });
+    }
+
+    if (langToggleMobile) {
+      langToggleMobile.addEventListener("click", () => {
+        updateLanguage(currentLang === "es" ? "en" : "es");
+      });
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.contains("dark");
+        applyTheme(isDark ? "light" : "dark");
+      });
+    }
+
+    if (themeToggleMobile) {
+      themeToggleMobile.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.contains("dark");
+        applyTheme(isDark ? "light" : "dark");
+      });
+    }
+
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    applyTheme(savedTheme);
+    updateLanguage(currentLang);
+    renderDashboard();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+ 
+    function updateYearProgress() {
+        const now = new Date();
+        const year = now.getFullYear();
+
+        const start = new Date(year, 0, 1);
+        const end = new Date(year + 1, 0, 1);
+
+        const elapsed = now - start;
+        const total = end - start;
+        const percent = Math.min(100, Math.max(0, (elapsed / total) * 100));
+
+        const monthNamesEs = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+        const monthNamesEn = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        const currentYearEl = document.getElementById("currentYear");
+        const currentDateEl = document.getElementById("currentDate");
+        const yearProgressTextEl = document.getElementById("yearProgressText");
+        const yearProgressBarEl = document.getElementById("yearProgressBar");
+
+        if (currentYearEl) currentYearEl.textContent = year;
+
+        if (currentDateEl) {
+        const monthNames = currentLang === "en" ? monthNamesEn : monthNamesEs;
+        currentDateEl.textContent = `${now.getDate()} ${monthNames[now.getMonth()]}`;
+        }
+
+        if (yearProgressTextEl) {
+        yearProgressTextEl.textContent = `${percent.toFixed(1)}%`;
+        }
+
+        if (yearProgressBarEl) {
+        yearProgressBarEl.style.width = `${percent}%`;
+        }
+
+        const marker = document.getElementById("yearMarker");
+        const markerDate = document.getElementById("yearMarkerDate");
+
+        if (marker) {
+        marker.style.left = `${percent}%`;
+        }
+
+        if (markerDate) {
+        const monthNames = currentLang === "en" ? monthNamesEn : monthNamesEs;
+        markerDate.textContent = `${now.getDate()} ${monthNames[now.getMonth()]}`;
+        }
+    } 
+
+    updateYearProgress();
+  </script>
+</body>
+</html>
