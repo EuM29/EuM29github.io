@@ -28,17 +28,23 @@ Ruth Moreno
   </script>
   <style>
     .skill-chip {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.5rem 1.25rem;
-    border-radius: 0.75rem;
-    background: rgba(148, 163, 184, 0.2);
-    border: 1px solid rgba(148, 163, 184, 0.25);
-    color: #f8fafc;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-    animation: chipFloat 4s ease-in-out infinite;
-  }
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1.25rem;
+      border-radius: 0.75rem;
+      background: rgba(148, 163, 184, 0.18);
+      border: 1px solid rgba(100, 116, 139, 0.25);
+      color: #0f172a;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      animation: chipFloat 4s ease-in-out infinite;
+    }
+    
+    .dark .skill-chip {
+      background: rgba(148, 163, 184, 0.2);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      color: #f8fafc;
+    }
 
   .skill-chip:hover {
     transform: translateY(-4px) scale(1.04);
