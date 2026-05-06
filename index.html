@@ -27,6 +27,43 @@ Ruth Moreno
     };
   </script>
   <style>
+    .skill-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.75rem;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    color: #f8fafc;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    animation: chipFloat 4s ease-in-out infinite;
+  }
+
+  .skill-chip:hover {
+    transform: translateY(-4px) scale(1.04);
+    border-color: rgba(56, 189, 248, 0.8);
+    box-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.35), rgba(6, 182, 212, 0.25));
+  }
+
+  .skill-chip:nth-child(2n) {
+    animation-delay: 0.4s;
+  }
+
+  .skill-chip:nth-child(3n) {
+    animation-delay: 0.8s;
+  }
+
+  @keyframes chipFloat {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+    
     .glass {
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
@@ -59,6 +96,8 @@ Ruth Moreno
     ::-webkit-scrollbar-thumb:hover {
       background: rgba(59, 130, 246, 0.6);
     }
+
+    
   </style>
 </head>
 <body class="bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100 selection:bg-blue-400 selection:text-slate-950 transition-colors duration-500">
@@ -646,19 +685,22 @@ Ruth Moreno
             <p class="text-blue-600 dark:text-blue-300 text-sm uppercase tracking-[0.25em] mb-3" data-es="Tecnologías" data-en="Technologies">Tecnologías</p>
             <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-6" data-es="Stack" data-en="Stack">Stack</h3>
             <div class="flex flex-wrap gap-3">
-              <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">Python</span>
-                <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">SQL</span>
-                <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">PL/SQL</span>
-                <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">Oracle</span>
-                <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">Power BI</span>
-                <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">DAX</span>
-                <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">Pandas</span>
-                <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">KNIME</span>
-                <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">Power Automate</span>
-                <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">EasyOCR</span>
-                <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">OpenCV</span>
-                <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">HTML / CSS</span>
-                <span class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200">Git</span>
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">SQL</span>
+              <span class="skill-chip">PL/SQL</span>
+              <span class="skill-chip">Oracle</span>
+              <span class="skill-chip">Power BI</span>
+              <span class="skill-chip">DAX</span>
+              <span class="skill-chip">Pandas</span>
+              <span class="skill-chip">KNIME</span>
+              <span class="skill-chip">Power Automate</span>
+              <span class="skill-chip">EasyOCR</span>
+              <span class="skill-chip">OpenCV</span>
+              <span class="skill-chip">HTML / CSS</span>
+              <span class="skill-chip">Git</span>
+              <span class="skill-chip">Oracle APEX</span>
+              <span class="skill-chip">Excel</span>
+              <span class="skill-chip">Tailwind CSS</span>
             </div>
           </div>
 
